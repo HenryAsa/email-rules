@@ -7,7 +7,7 @@
 ################
 # Python Files #
 ################
-build/
+/build/
 # setup.py dist directory
 dist/
 doc/build
