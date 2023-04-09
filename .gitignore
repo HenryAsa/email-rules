@@ -4,14 +4,22 @@
 **/__pycache__
 
 
+################
+# Python Files #
+################
+build/
+# setup.py dist directory
+dist/
+doc/build
+doc/docenv
+doc/cdoc/build
+# Egg metadata
+*.egg-info
+
+
 ######################
 # OS generated files #
 ######################
 .DS_Store
 .DS_Store?
 ._*
-
-
-########################################
-# PRIVATE FILES WITH CONFIDENTIAL INFO #
-########################################
