@@ -80,21 +80,19 @@ class Rule:
         self.rule_specific_attributes: str = ""
         """This is a `str` representing attributes that are always applied to a specific type of rule"""
 
-        self.flags_dict: dict[str, str] = rule_flags
+        self.flags: dict[str, str] = rule_flags
         """This is a `dict` representing all of the flags that are going to be applied to this rule"""
 
-        self.flags: str = self.parse_flags()
-        """This is a `str` representing boolean rule attributes that are initialized early on"""
-
-    def parse_flags(self) -> str:
-        """Convert dictionary of rule flags into string standard attributes
+    @property
+    def flags_str(self) -> str:
+        """Converts `dict` of rule flags into `str` of standard attributes
 
         Returns
         -------
-        flags_string : str
+        flags_string : `str`
         """
         flags_string = ""
-        for attribute_name, attribute_value in self.flags_dict.items():
+        for attribute_name, attribute_value in self.flags.items():
             flags_string += f"{self.define_rule_attribute(attribute_name, attribute_value, True)}"
         return flags_string
 
@@ -202,8 +200,8 @@ class Rule:
         for rule_attribute in self.rule_attributes:
             final_rule += f"{rule_attribute}"
 
-        final_rule += f"{self.rule_specific_attributes}{self.flags}{self.rule_footer}"
-        final_rule = final_rule.expandtabs(TAB_SPACING)
+        final_rule += f"{self.rule_specific_attributes}{self.flags_str}{self.rule_footer}"
+        final_rule = final_rule.expandtabs(_hp.TAB_SPACING)
 
         self.final_rule = final_rule
 
