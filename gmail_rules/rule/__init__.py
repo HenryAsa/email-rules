@@ -16,8 +16,8 @@ def set_module(module):
         return func
     return decorator
 
-from . import rule
-from . import copy_to
+from .rule import Rule
+from .copy_to import Copy_To
 
 __all__ = [
     "Rule",
