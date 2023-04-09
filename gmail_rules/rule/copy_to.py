@@ -8,8 +8,7 @@ __all__ = ["Copy_To"]
 
 @set_module('gmail_rules.rules')
 class Copy_To(_Rule):
-    """
-    Copy_To rule object which is a sub-class of :obj:`Rule`
+    """Copy_To rule object which is a sub-class of :obj:`Rule`
 
     Parameters
     ----------
@@ -53,14 +52,11 @@ class Copy_To(_Rule):
 
         super().__init__(list_of_emails, flags, rule_name)
 
+        self.flags.update(shouldNeverSpam = "true")
+        ## Add rule-type specific flags to the flags dictionary
+
         self.rule_label: str = rule_label
         """This is the label that will be applied to all of the emails with this rule"""
 
-        self.rule_specific_attributes = "\n\t<apps:property name='shouldNeverSpam' value='true'/>"
-        """This is a `str` representing attributes that are always applied to a specific type of rule"""
-
         self.define_rule_attribute("label", self.rule_label)
-        # Add the labeling attribute to the mail rule
-
-    # def __str__(self) -> str:
-    #     return self.name
+        ## Add the labeling attribute to the mail rule

@@ -1,6 +1,8 @@
 import textwrap
 import os
 
+TAB_SPACING = 4
+
 def add_xml_comment(comment_text: str):
     """
     Converts the string `comment_text` to be formatted like an xml comment
