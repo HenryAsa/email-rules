@@ -18,10 +18,12 @@ def set_module(module):
 
 from .rule import Rule
 from .copy_to import Copy_To
+from .move_to import Move_To
 
 __all__ = [
     "Rule",
-    "Copy_To"
+    "Copy_To",
+    "Move_To",
 ]
 
 # from . import rule_classes
