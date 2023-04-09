@@ -10,6 +10,9 @@ Welcome to gmail-rules's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+modules
+=======
+.. automodule:: modules
 
 gmail_rules
 ===========
