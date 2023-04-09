@@ -34,7 +34,7 @@ def setup_package():
         },
         platforms=["Windows", "Linux", "Solaris", "Mac OS-X", "Unix"],
         test_suite='pytest',
-        python_requires='>=3.9',
+        python_requires='>=3.7',
         packages=find_packages()
     )
     # metadata['configuration'] = configuration
