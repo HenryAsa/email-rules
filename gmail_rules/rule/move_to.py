@@ -29,7 +29,7 @@ class Move_To(_Rule):
     """
 
     def __init__(self, rule_label: str, list_of_emails: list = None, flags: dict = {}) -> None:
-        """Initialize a Mopy_To rule object which is a subclass of a 
+        """Initialize a Move_To rule object which is a subclass of a 
 
         Parameters
         ----------
