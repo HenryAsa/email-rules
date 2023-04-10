@@ -14,3 +14,4 @@ gmail_rules.rules
 import numpy
 
 print(numpy.linalg.det.__module__)
+print("test")
