@@ -17,7 +17,7 @@ class Rule:
     ----------
     name : `str`
         Name of the mail rule.
-    final_rule : `str`, optional
+    final_rule : `str`
         String representing the final formatted rule
     emails_list : `list[str]`
         List of email addresses that the mail rule applies to

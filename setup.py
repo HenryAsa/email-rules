@@ -1,8 +1,8 @@
-# #!/usr/bin/env python3
+#!/usr/bin/env python3
 
-# """
-# Setup for Gmail-Rules Package
-# """
+"""
+Setup for Gmail-Rules Package
+"""
 
 import os
 from pathlib import Path
@@ -12,7 +12,6 @@ from setuptools import (setup, find_packages)
 
 def setup_package():
     src_path = os.path.dirname(os.path.abspath(__file__))
-    print(src_path)
     old_path = os.getcwd()
     os.chdir(src_path)
     sys.path.insert(0, src_path)
