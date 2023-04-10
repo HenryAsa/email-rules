@@ -48,7 +48,7 @@ class Move_To(_Rule):
             `None`
                 Doesn't return anything.
         """
-        rule_name = f"MOPY TO: {rule_label}"
+        rule_name = f"MOVE TO: {rule_label}"
 
         super().__init__(list_of_emails, flags, rule_name)
 
