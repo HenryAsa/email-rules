@@ -1,12 +1,12 @@
 
 from gmail_rules.utils import helpers as _hp
-from gmail_rules.rule.rule import Rule as _Rule
+from gmail_rules.rules.rule import Rule as _Rule
 
 from . import set_module
 
 __all__ = ["Move_To"]
 
-@set_module('gmail_rules.rule')
+@set_module('gmail_rules.rules')
 class Move_To(_Rule):
     """Move_To rule object which is a sub-class of :obj:`Rule`
 

@@ -7,9 +7,9 @@ print(sys.path)
 
 print(f"DIR OF gmail_rules       {dir(gmail_rules)}")
 print(f"{gmail_rules}")
-print(f"DIR OF gmail_rules.rule  {dir(gmail_rules.rule)}")
+print(f"DIR OF gmail_rules.rule  {dir(gmail_rules.rules)}")
 
-gmail_rules.rule
+gmail_rules.rules
 
 import numpy
 

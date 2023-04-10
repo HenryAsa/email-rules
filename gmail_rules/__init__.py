@@ -1,2 +1,2 @@
-from . import rule
+from . import rules
 from . import utils
