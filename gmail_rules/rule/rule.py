@@ -4,7 +4,7 @@ from . import set_module
 
 __all__ = ["Rule"]
 
-@set_module('gmail_rules.rules')
+@set_module('gmail_rules.rule')
 class Rule:
     """Defines an individual mail rule and its necessary attributes
 

@@ -6,7 +6,7 @@ from . import set_module
 
 __all__ = ["Move_To"]
 
-@set_module('gmail_rules.rules')
+@set_module('gmail_rules.rule')
 class Move_To(_Rule):
     """Move_To rule object which is a sub-class of :obj:`Rule`
 
