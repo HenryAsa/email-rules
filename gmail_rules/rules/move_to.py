@@ -18,9 +18,8 @@ class Move_To(_Rule):
     list_of_emails : `list`
         This is a list of email addresses that the mail rule should be
         applied to.
-    rule_flags : `dict`, optional
-        This is a dictionary containing boolean mail rule attributes that
-        either will or will not be applied to the rule
+    rule_defaults : `dict`, optional
+        This is a dictionary containing default rule attributes
 
     Returns
     ----------
@@ -28,8 +27,8 @@ class Move_To(_Rule):
             Doesn't return anything.
     """
 
-    def __init__(self, rule_label: str, list_of_emails: list = None, flags: dict = {}) -> None:
-        """Initialize a Move_To rule object which is a subclass of a 
+    def __init__(self, rule_label: str, list_of_emails: list = None, rule_defaults: dict = {}) -> None:
+        """Initialize a Move_To rule object which is a subclass of :obj:`Rule`
 
         Parameters
         ----------
@@ -39,9 +38,8 @@ class Move_To(_Rule):
         list_of_emails : `list`
             This is a list of email addresses that the mail rule should be
             applied to.
-        rule_flags : `dict`
-            This is a dictionary containing boolean mail rule attributes that
-            either will or will not be applied to the rule
+        rule_defaults : `dict`, optional
+            This is a dictionary containing default rule attributes
 
         Returns
         ----------
@@ -49,11 +47,10 @@ class Move_To(_Rule):
                 Doesn't return anything.
         """
         rule_name = f"MOVE TO: {rule_label}"
-
-        super().__init__(list_of_emails, flags, rule_name)
-
-        self.flags.update(shouldNeverSpam = "true", shouldArchive = "true")
+        rule_defaults.update(shouldNeverSpam = "true", shouldArchive = "true")
         ## Add rule-type specific flags to the flags dictionary
+
+        super().__init__(list_of_emails, rule_defaults, rule_name)
 
         self.rule_label: str = rule_label
         """This is the label that will be applied to all of the emails with this rule"""
