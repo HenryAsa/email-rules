@@ -46,9 +46,11 @@ class Rule:
         self.name: str = rule_name
         """This `str` is the title of the rule"""
 
-        self.attribute_order: tuple[str] = ("label", "from", "subject", "hasTheWord", "doesNotHaveTheWord", "shouldNeverSpam", "shouldArchive", "sizeOperator", "sizeUnit")
+        self._attribute_order: tuple[str] = ("label", "from", "subject", "hasTheWord", "doesNotHaveTheWord", "shouldNeverSpam", "shouldArchive", "sizeOperator", "sizeUnit")
         """Hard-coded order that the rule attributes should appear in"""
-        # self._possible_attributes: frozenset[str] = frozenset(self.attribute_order)
+
+        self._possible_attributes: frozenset[str] = frozenset(self._attribute_order)
+        """`frozenset` of the valid attributes defined in `self._attribute_order`"""
 
         self.rule_attributes: dict[str, str] = {}
         """This is a `dict` of all of the rule attributes that should be applied"""
@@ -77,19 +79,8 @@ class Rule:
         """This is a `str` representing how each mail rule will end"""
 
     @property
-    def _possible_attributes(self) -> frozenset[str]:
-        """`frozenset` of the valid attributes defined in `self.attribute_order`
-
-        Returns
-        -------
-        frozenset[str]
-            `frozenset` of all of the elements in `self.attribute_order`
-        """
-        return frozenset(self.attribute_order)
-
-    @property
-    def rule_attributes_xmls(self) -> str:
-        """Converts `dict` of rule attributes into 
+    def rule_attributes_xmls(self) -> dict:
+        """Converts `dict` of rule attributes into `dict` of attributes where keys are in xml format
 
         Returns
         -------
@@ -97,12 +88,12 @@ class Rule:
         """
         rule_attributes_xmls = {}
         for attribute_name, attribute_value in self.rule_attributes.items():
-            rule_attributes_xmls[attribute_name] = f"{self.define_rule_attribute(attribute_name, attribute_value)}"
+            rule_attributes_xmls[attribute_name] = f"{self.xml_format_rule_attribute(attribute_name, attribute_value)}"
 
         return rule_attributes_xmls
     
     @property
-    def rule_attributes_xml_str(self) -> str:
+    def rule_attributes_xmls_str(self) -> str:
         """Converts `dict` of rule attributes into ordered `str` for use in final xml
 
         Returns
@@ -112,16 +103,27 @@ class Rule:
         rule_attributes_xmls_str = ""
         current_rule_xmls = self.rule_attributes_xmls
 
-        for attribute_name in self.attribute_order:
+        for attribute_name in self._attribute_order:
             if attribute_name in current_rule_xmls:
                 rule_attributes_xmls_str += current_rule_xmls[attribute_name]
 
         return rule_attributes_xmls_str
-    
+
     @property
     def final_rule_str(self) -> str:
         """This is the final `str` that can be copied and pasted into an xml to define the rule"""
         return self.build_rule()
+
+    def _modify_possible_attributes(self, new_attribute: str) -> None:
+        """Modify the order of the hard-coded attributes arrays
+
+        Parameters
+        ----------
+        new_attribute : str
+            This is the attribute to add the hard-coded array
+        """
+        self._attribute_order = self._attribute_order + (new_attribute,)
+        self._possible_attributes = frozenset(self._attribute_order)
 
     def flatten_list(self, list_to_flatten: list | list[list]) -> list:
         """
@@ -170,7 +172,7 @@ class Rule:
 
             return final_output
 
-    def define_rule_attribute(self, name: str, value: str) -> str:
+    def xml_format_rule_attribute(self, name: str, value: str) -> str:
         """
         Given an attribute name, its value, and an optional boolean determining whether this
         new attriute should be added to the list of attributes, this function properly builds
@@ -212,11 +214,11 @@ class Rule:
             ## Check whether we are using a custom attribute
             if name not in self._possible_attributes:
                 ## Add custom attribute name to the possible rule attributes
-                self.attribute_order = self.attribute_order + (name,)
+                self._modify_possible_attributes(name)
 
         if name not in self._possible_attributes:
             ## Raise Error if this attribute name is unallowed
-            raise KeyError(f"{name} is not a valid filter attribute")
+            raise KeyError(f"{name} is not a valid filter attribute.  Check for typos")
 
         self.rule_attributes[name] = value
 
@@ -227,8 +229,7 @@ class Rule:
         `rule_name` which is a `str` representing the name of the mail rule,
         but when the rule is parsed into Gmail, this gets ignored.
         """
-        final_rule = self.rule_header
-        final_rule += f"{self.rule_attributes_xml_str}{self.rule_footer}"
+        final_rule = f"{self.rule_header}{self.rule_attributes_xmls_str}{self.rule_footer}"
         final_rule = final_rule.expandtabs(_hp.TAB_SPACING)
 
         return final_rule
