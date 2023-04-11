@@ -91,7 +91,7 @@ class Rule:
             rule_attributes_xmls[attribute_name] = f"{self.xml_format_rule_attribute(attribute_name, attribute_value)}"
 
         return rule_attributes_xmls
-    
+
     @property
     def rule_attributes_xmls_str(self) -> str:
         """Converts `dict` of rule attributes into ordered `str` for use in final xml
@@ -193,7 +193,7 @@ class Rule:
         rule_line = f"\n\t<apps:property name='{name}' value='{value}'/>"
 
         return rule_line
-    
+
     def add_attribute(self, name: str, value: str, is_custom_attribute: bool = False) -> None:
         """Add an attribute to the mail rule
 
