@@ -18,9 +18,8 @@ class Copy_To(_Rule):
     list_of_emails : `list`
         This is a list of email addresses that the mail rule should be
         applied to.
-    rule_flags : `dict`, optional
-        This is a dictionary containing boolean mail rule attributes that
-        either will or will not be applied to the rule
+    rule_defaults : `dict`, optional
+        This is a dictionary containing default rule attributes
 
     Returns
     ----------
@@ -28,7 +27,7 @@ class Copy_To(_Rule):
             Doesn't return anything.
     """
 
-    def __init__(self, rule_label: str, list_of_emails: list = None, flags: dict = {}) -> None:
+    def __init__(self, rule_label: str, list_of_emails: list = None, rule_defaults: dict = {}) -> None:
         """Initialize a Copy_To rule object which is a subclass of a 
 
         Parameters
@@ -39,9 +38,8 @@ class Copy_To(_Rule):
         list_of_emails : `list`
             This is a list of email addresses that the mail rule should be
             applied to.
-        rule_flags : `dict`
-            This is a dictionary containing boolean mail rule attributes that
-            either will or will not be applied to the rule
+        rule_defaults : `dict`, optional
+            This is a dictionary containing default rule attributes
 
         Returns
         ----------
@@ -49,11 +47,10 @@ class Copy_To(_Rule):
                 Doesn't return anything.
         """
         rule_name = f"COPY TO: {rule_label}"
-
-        super().__init__(list_of_emails, flags, rule_name)
-
-        self.flags.update(shouldNeverSpam = "true")
+        rule_defaults.update(shouldNeverSpam = "true")
         ## Add rule-type specific flags to the flags dictionary
+
+        super().__init__(list_of_emails, rule_defaults, rule_name)
 
         self.rule_label: str = rule_label
         """This is the label that will be applied to all of the emails with this rule"""
