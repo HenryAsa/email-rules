@@ -1,3 +1,6 @@
+"""
+Initialize rules module
+"""
 
 def set_module(module):
     """Private decorator for overriding __module__ on a function or class.
