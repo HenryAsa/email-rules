@@ -46,7 +46,7 @@ class Rule:
         self.name: str = rule_name
         """This `str` is the title of the rule"""
 
-        self.attribute_order: tuple[str] = ("label", "from", "subject", "hasTheWord", "doesNotHaveTheWord", "shouldNeverSpam", "shouldArchive", "sizeOperator", "sizeUnit")
+        self.attribute_order: tuple[str] = ("label", "from", "subject", "hasTheWord", "doesNotHaveTheWord", "shouldArchive", "shouldAlwaysMarkAsImportant", "shouldNeverSpam", "sizeOperator", "sizeUnit")
         """Hard-coded order that the rule attributes should appear in"""
         # self._possible_attributes: frozenset[str] = frozenset(self.attribute_order)
 
@@ -100,7 +100,7 @@ class Rule:
             rule_attributes_xmls[attribute_name] = f"{self.define_rule_attribute(attribute_name, attribute_value)}"
 
         return rule_attributes_xmls
-    
+
     @property
     def rule_attributes_xml_str(self) -> str:
         """Converts `dict` of rule attributes into ordered `str` for use in final xml
@@ -117,7 +117,7 @@ class Rule:
                 rule_attributes_xmls_str += current_rule_xmls[attribute_name]
 
         return rule_attributes_xmls_str
-    
+
     @property
     def final_rule_str(self) -> str:
         """This is the final `str` that can be copied and pasted into an xml to define the rule"""
