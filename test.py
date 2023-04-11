@@ -11,7 +11,4 @@ print(f"DIR OF gmail_rules.rule  {dir(gmail_rules.rules)}")
 
 gmail_rules.rules
 
-import numpy
-
-print(numpy.linalg.det.__module__)
 print("test")
