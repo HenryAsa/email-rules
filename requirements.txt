@@ -2,7 +2,7 @@
 
 setuptools
 cython>=0.29.30
-pkg-config
+pkgconfig
 
 # For type annotations
 typing
