@@ -1,8 +1,18 @@
 # Required packages
 
 setuptools
+cython>=0.29.30
+pkg-config
 
+# For type annotations
+mypy>=0.981
+typing_extensions>=4.2.0
+
+# For testing
+pytest
+
+# For building docs
 sphinx>=4.5.0
-numpydoc==1.4
-pydata-sphinx-theme
 sphinx-design
+pydata-sphinx-theme
+numpydoc>=1.4
