@@ -20,15 +20,10 @@ class Copy_To(_Rule):
         applied to.
     rule_defaults : `dict`, optional
         This is a dictionary containing default rule attributes
-
-    Returns
-    ----------
-        `None`
-            Doesn't return anything.
     """
 
     def __init__(self, rule_label: str, list_of_emails: list = None, rule_defaults: dict = {}) -> None:
-        """Initialize a Copy_To rule object which is a subclass of a 
+        """Initialize a Copy_To rule object which is a subclass of :obj:`Rule`
 
         Parameters
         ----------
@@ -40,11 +35,6 @@ class Copy_To(_Rule):
             applied to.
         rule_defaults : `dict`, optional
             This is a dictionary containing default rule attributes
-
-        Returns
-        ----------
-            `None`
-                Doesn't return anything.
         """
         rule_name = f"COPY TO: {rule_label}"
         rule_defaults.update(shouldNeverSpam = "true")
@@ -55,5 +45,5 @@ class Copy_To(_Rule):
         self.rule_label: str = rule_label
         """This is the label that will be applied to all of the emails with this rule"""
 
-        self.define_rule_attribute("label", self.rule_label)
+        self.add_attribute("label", self.rule_label)
         ## Add the labeling attribute to the mail rule
