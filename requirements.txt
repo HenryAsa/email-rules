@@ -1,0 +1,8 @@
+# Required packages
+
+setuptools
+
+sphinx>=4.5.0
+numpydoc==1.4
+pydata-sphinx-theme
+sphinx-design
