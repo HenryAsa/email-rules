@@ -5,6 +5,7 @@ cython>=0.29.30
 pkg-config
 
 # For type annotations
+typing
 mypy>=0.981
 typing_extensions>=4.2.0
 
