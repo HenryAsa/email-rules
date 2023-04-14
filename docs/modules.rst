@@ -2,6 +2,6 @@ gmail_rules
 ===========
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 5
 
    gmail_rules

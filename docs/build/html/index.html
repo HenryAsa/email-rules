@@ -254,12 +254,13 @@ document.write(`
 <section id="module-gmail_rules">
 <span id="gmail-rules"></span><h1>gmail_rules<a class="headerlink" href="#module-gmail_rules" title="Permalink to this heading">#</a></h1>
 </section>
-<section id="module-gmail_rules.rule">
-<span id="gmail-rules-rule"></span><h1>gmail_rules.rule<a class="headerlink" href="#module-gmail_rules.rule" title="Permalink to this heading">#</a></h1>
+<section id="module-gmail_rules.rules">
+<span id="gmail-rules-rules"></span><h1>gmail_rules.rules<a class="headerlink" href="#module-gmail_rules.rules" title="Permalink to this heading">#</a></h1>
+<p>Initialize rules module</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="gmail_rules.rule.Copy_To">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gmail_rules.rule.</span></span><span class="sig-name descname"><span class="pre">Copy_To</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_emails</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gmail_rules.rule.Copy_To" title="Permalink to this definition">#</a></dt>
-<dd><p>Copy_To rule object which is a sub-class of <a class="reference internal" href="#gmail_rules.rule.Rule" title="gmail_rules.rule.Rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rule</span></code></a></p>
+<dt class="sig sig-object py" id="gmail_rules.rules.Copy_To">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gmail_rules.rules.</span></span><span class="sig-name descname"><span class="pre">Copy_To</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_emails</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_defaults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gmail_rules.rules.Copy_To" title="Permalink to this definition">#</a></dt>
+<dd><p>Copy_To rule object which is a sub-class of <a class="reference internal" href="#gmail_rules.rules.Rule" title="gmail_rules.rules.Rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rule</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -267,29 +268,39 @@ document.write(`
 this rule’s criteria</p></li>
 <li><p><strong>list_of_emails</strong> (<cite>list</cite>) – This is a list of email addresses that the mail rule should be
 applied to.</p></li>
-<li><p><strong>rule_flags</strong> (<cite>dict</cite>, optional) – This is a dictionary containing boolean mail rule attributes that
-either will or will not be applied to the rule</p></li>
+<li><p><strong>rule_defaults</strong> (<cite>dict</cite>, optional) – This is a dictionary containing default rule attributes</p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Doesn’t return anything.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><cite>None</cite></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gmail_rules.rule.</span></span><span class="sig-name descname"><span class="pre">Rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_emails</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_flags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Mail</span> <span class="pre">Filter'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gmail_rules.rule.Rule" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Move_To">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gmail_rules.rules.</span></span><span class="sig-name descname"><span class="pre">Move_To</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_emails</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_defaults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gmail_rules.rules.Move_To" title="Permalink to this definition">#</a></dt>
+<dd><p>Move_To rule object which is a sub-class of <a class="reference internal" href="#gmail_rules.rules.Rule" title="gmail_rules.rules.Rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rule</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rule_label</strong> (<cite>str</cite>) – This is the label that should be applied to emails that meet
+this rule’s criteria</p></li>
+<li><p><strong>list_of_emails</strong> (<cite>list</cite>) – This is a list of email addresses that the mail rule should be
+applied to.</p></li>
+<li><p><strong>rule_defaults</strong> (<cite>dict</cite>, optional) – This is a dictionary containing default rule attributes</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gmail_rules.rules.</span></span><span class="sig-name descname"><span class="pre">Rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_emails</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_defaults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Mail</span> <span class="pre">Filter'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gmail_rules.rules.Rule" title="Permalink to this definition">#</a></dt>
 <dd><p>Defines an individual mail rule and its necessary attributes</p>
 <p>A rule class defines an individual mail rule and includes functions/operations
 to modify a rule’s behavior and generate parseable formats of a rule.</p>
 <p>…</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#gmail_rules.rule.Rule.name" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#gmail_rules.rules.Rule.name" title="Permalink to this definition">#</a></dt>
 <dd><p>Name of the mail rule.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -299,19 +310,19 @@ to modify a rule’s behavior and generate parseable formats of a rule.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.final_rule">
-<span class="sig-name descname"><span class="pre">final_rule</span></span><a class="headerlink" href="#gmail_rules.rule.Rule.final_rule" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.final_rule">
+<span class="sig-name descname"><span class="pre">final_rule</span></span><a class="headerlink" href="#gmail_rules.rules.Rule.final_rule" title="Permalink to this definition">#</a></dt>
 <dd><p>String representing the final formatted rule</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><cite>str</cite>, optional</p>
+<dd class="field-odd"><p><cite>str</cite></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.emails_list">
-<span class="sig-name descname"><span class="pre">emails_list</span></span><a class="headerlink" href="#gmail_rules.rule.Rule.emails_list" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.emails_list">
+<span class="sig-name descname"><span class="pre">emails_list</span></span><a class="headerlink" href="#gmail_rules.rules.Rule.emails_list" title="Permalink to this definition">#</a></dt>
 <dd><p>List of email addresses that the mail rule applies to</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -321,8 +332,8 @@ to modify a rule’s behavior and generate parseable formats of a rule.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.concatenated_emails">
-<span class="sig-name descname"><span class="pre">concatenated_emails</span></span><a class="headerlink" href="#gmail_rules.rule.Rule.concatenated_emails" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.concatenated_emails">
+<span class="sig-name descname"><span class="pre">concatenated_emails</span></span><a class="headerlink" href="#gmail_rules.rules.Rule.concatenated_emails" title="Permalink to this definition">#</a></dt>
 <dd><p>String of email addresses that are concatenated together</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -332,19 +343,8 @@ to modify a rule’s behavior and generate parseable formats of a rule.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.from_attribute">
-<span class="sig-name descname"><span class="pre">from_attribute</span></span><a class="headerlink" href="#gmail_rules.rule.Rule.from_attribute" title="Permalink to this definition">#</a></dt>
-<dd><p>A specific string designated to hold the ‘from’ mail rule attribute</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><cite>str</cite></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.rule_header">
-<span class="sig-name descname"><span class="pre">rule_header</span></span><a class="headerlink" href="#gmail_rules.rule.Rule.rule_header" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.rule_header">
+<span class="sig-name descname"><span class="pre">rule_header</span></span><a class="headerlink" href="#gmail_rules.rules.Rule.rule_header" title="Permalink to this definition">#</a></dt>
 <dd><p>Generic string that precedes the unique section of mail rules</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -354,8 +354,8 @@ to modify a rule’s behavior and generate parseable formats of a rule.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.rule_footer">
-<span class="sig-name descname"><span class="pre">rule_footer</span></span><a class="headerlink" href="#gmail_rules.rule.Rule.rule_footer" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.rule_footer">
+<span class="sig-name descname"><span class="pre">rule_footer</span></span><a class="headerlink" href="#gmail_rules.rules.Rule.rule_footer" title="Permalink to this definition">#</a></dt>
 <dd><p>Generic string that appends the unique section of mail rules</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -365,8 +365,23 @@ to modify a rule’s behavior and generate parseable formats of a rule.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.build_rule">
-<span class="sig-name descname"><span class="pre">build_rule</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rule/rule.html#Rule.build_rule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rule.Rule.build_rule" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.add_attribute">
+<span class="sig-name descname"><span class="pre">add_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_custom_attribute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rules/rule.html#Rule.add_attribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rules.Rule.add_attribute" title="Permalink to this definition">#</a></dt>
+<dd><p>Add an attribute to the mail rule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Name of the attribute to add</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Value of the attribute</p></li>
+<li><p><strong>is_custom_attribute</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em>, </em><em>optional</em>) – Defines whether the attribute being added is custom (use with caution), default = <cite>False</cite></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.build_rule">
+<span class="sig-name descname"><span class="pre">build_rule</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rules/rule.html#Rule.build_rule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rules.Rule.build_rule" title="Permalink to this definition">#</a></dt>
 <dd><p>After all of the details of a rule are defined, this function is run
 to actually build the desired mail rule.  It takes an optional argument
 <cite>rule_name</cite> which is a <cite>str</cite> representing the name of the mail rule,
@@ -374,24 +389,20 @@ but when the rule is parsed into Gmail, this gets ignored.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.concatenate">
-<span class="sig-name descname"><span class="pre">concatenate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elements_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">OR</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rule/rule.html#Rule.concatenate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rule.Rule.concatenate" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.concatenate">
+<span class="sig-name descname"><span class="pre">concatenate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elements_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">OR</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rules/rule.html#Rule.concatenate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rules.Rule.concatenate" title="Permalink to this definition">#</a></dt>
 <dd><p>Given a list of elements <cite>elements</cite>, this returns the concatenation of the elements with a
-separator <cite>separator</cite> between them (<cite>” OR “</cite> by default).  Defaults to concaenating
-<cite>self.emails_list</cite> but can also take in a list of elements.</p>
+separator <cite>separator</cite> between them (<cite>” OR “</cite> by default)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>elements_input</strong> (<cite>list</cite>, default = <cite>None</cite>, optional) – This is a list of items that should be concatenated together.</p></li>
-<li><p><strong>separator</strong> (<cite>str</cite>, default = <cite>“ OR “</cite>, optional) – This is the string that will be used to separate individual
-elements.</p></li>
+<li><p><strong>elements_input</strong> (<cite>list</cite>) – This is a list of items that should be concatenated together.</p></li>
+<li><p><strong>separator</strong> (<cite>str</cite>, default = <cite>“ OR “</cite>, optional) – This is the string that will be used to separate individual elements.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>final_output</strong> – Returns a singular string containing all of the items in <cite>elements</cite> after being
-concatenated and separated with the <cite>separator</cite>.  Also assigns a new value to
-<cite>self.concatenated_emails</cite> depending on whether email addresses were being
-concatenated.</p>
+concatenated and separated with the <cite>separator</cite></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><cite>str</cite></p>
@@ -399,9 +410,51 @@ concatenated.</p>
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.final_rule_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">final_rule_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#gmail_rules.rules.Rule.final_rule_str" title="Permalink to this definition">#</a></dt>
+<dd><p>This is the final <cite>str</cite> that can be copied and pasted into an xml to define the rule</p>
+</dd></dl>
+
 <dl class="py method">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.define_rule_attribute">
-<span class="sig-name descname"><span class="pre">define_rule_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_from_attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rule/rule.html#Rule.define_rule_attribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rule.Rule.define_rule_attribute" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.flatten_list">
+<span class="sig-name descname"><span class="pre">flatten_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_to_flatten</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rules/rule.html#Rule.flatten_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rules.Rule.flatten_list" title="Permalink to this definition">#</a></dt>
+<dd><p>This function takes a <cite>list</cite> (of potentially nested lists) and recursively
+flattens the list so that it is just a single list of elements that are not
+of type <cite>list</cite></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.rule_attributes_xmls">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_attributes_xmls</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></em><a class="headerlink" href="#gmail_rules.rules.Rule.rule_attributes_xmls" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts <cite>dict</cite> of rule attributes into <cite>dict</cite> of attributes where keys are in xml format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rule_attribute_xmls</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>dict</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.rule_attributes_xmls_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_attributes_xmls_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#gmail_rules.rules.Rule.rule_attributes_xmls_str" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts <cite>dict</cite> of rule attributes into ordered <cite>str</cite> for use in final xml</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rule_attribute_xmls_str</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>str</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gmail_rules.rules.Rule.xml_format_rule_attribute">
+<span class="sig-name descname"><span class="pre">xml_format_rule_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rules/rule.html#Rule.xml_format_rule_attribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rules.Rule.xml_format_rule_attribute" title="Permalink to this definition">#</a></dt>
 <dd><p>Given an attribute name, its value, and an optional boolean determining whether this
 new attriute should be added to the list of attributes, this function properly builds
 and formats (and assigns) the defined attribute.</p>
@@ -410,40 +463,13 @@ and formats (and assigns) the defined attribute.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<cite>str</cite>) – This is the name of the attribute to define (defined by Google’s docs)</p></li>
 <li><p><strong>value</strong> (<cite>str</cite>) – This is the value of the desired attribute</p></li>
-<li><p><strong>exclude_from_attributes</strong> (<cite>bool</cite>, default = <cite>False</cite>, optional) – This boolean parameter determines whether or not the newly defined attribute
-should be appended to the <cite>self.rule_attributes</cite> list or whether the newly
-defined attribute should be returned as <cite>str</cite></p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>rule_line</strong> – Returns the properly formatted attribute if and only if <cite>exclude_from_attributes</cite>
-is <cite>True</cite> (which it is not by default).  Otherwise simply appends <cite>rule_line</cite> to
-the <cite>self.rule_attributes</cite> list</p>
+<dd class="field-even"><p><strong>rule_line</strong> – Returns the properly formatted attribute</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><cite>str</cite>, optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.flatten_list">
-<span class="sig-name descname"><span class="pre">flatten_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_to_flatten</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rule/rule.html#Rule.flatten_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rule.Rule.flatten_list" title="Permalink to this definition">#</a></dt>
-<dd><p>This function takes a <cite>list</cite> (of potentially nested lists) and recursively
-flattens the list so that it is just a single list of elements that are not
-of type list</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="gmail_rules.rule.Rule.parse_flags">
-<span class="sig-name descname"><span class="pre">parse_flags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="_modules/gmail_rules/rule/rule.html#Rule.parse_flags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.rule.Rule.parse_flags" title="Permalink to this definition">#</a></dt>
-<dd><p>Convert dictionary of rule flags into string standard attributes</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>flags_string</strong></p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-odd"><p><cite>str</cite></p>
 </dd>
 </dl>
 </dd></dl>
@@ -494,21 +520,24 @@ of type list</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to gmail-rules’s documentation!</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gmail_rules">gmail_rules</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gmail_rules.rule">gmail_rules.rule</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Copy_To"><code class="docutils literal notranslate"><span class="pre">Copy_To</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.name"><code class="docutils literal notranslate"><span class="pre">Rule.name</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.final_rule"><code class="docutils literal notranslate"><span class="pre">Rule.final_rule</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.emails_list"><code class="docutils literal notranslate"><span class="pre">Rule.emails_list</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.concatenated_emails"><code class="docutils literal notranslate"><span class="pre">Rule.concatenated_emails</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.from_attribute"><code class="docutils literal notranslate"><span class="pre">Rule.from_attribute</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.rule_header"><code class="docutils literal notranslate"><span class="pre">Rule.rule_header</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.rule_footer"><code class="docutils literal notranslate"><span class="pre">Rule.rule_footer</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.build_rule"><code class="docutils literal notranslate"><span class="pre">Rule.build_rule()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.concatenate"><code class="docutils literal notranslate"><span class="pre">Rule.concatenate()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.define_rule_attribute"><code class="docutils literal notranslate"><span class="pre">Rule.define_rule_attribute()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.flatten_list"><code class="docutils literal notranslate"><span class="pre">Rule.flatten_list()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rule.Rule.parse_flags"><code class="docutils literal notranslate"><span class="pre">Rule.parse_flags()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gmail_rules.rules">gmail_rules.rules</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Copy_To"><code class="docutils literal notranslate"><span class="pre">Copy_To</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Move_To"><code class="docutils literal notranslate"><span class="pre">Move_To</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.name"><code class="docutils literal notranslate"><span class="pre">Rule.name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.final_rule"><code class="docutils literal notranslate"><span class="pre">Rule.final_rule</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.emails_list"><code class="docutils literal notranslate"><span class="pre">Rule.emails_list</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.concatenated_emails"><code class="docutils literal notranslate"><span class="pre">Rule.concatenated_emails</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.rule_header"><code class="docutils literal notranslate"><span class="pre">Rule.rule_header</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.rule_footer"><code class="docutils literal notranslate"><span class="pre">Rule.rule_footer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.add_attribute"><code class="docutils literal notranslate"><span class="pre">Rule.add_attribute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.build_rule"><code class="docutils literal notranslate"><span class="pre">Rule.build_rule()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.concatenate"><code class="docutils literal notranslate"><span class="pre">Rule.concatenate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.final_rule_str"><code class="docutils literal notranslate"><span class="pre">Rule.final_rule_str</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.flatten_list"><code class="docutils literal notranslate"><span class="pre">Rule.flatten_list()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.rule_attributes_xmls"><code class="docutils literal notranslate"><span class="pre">Rule.rule_attributes_xmls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.rule_attributes_xmls_str"><code class="docutils literal notranslate"><span class="pre">Rule.rule_attributes_xmls_str</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.rules.Rule.xml_format_rule_attribute"><code class="docutils literal notranslate"><span class="pre">Rule.xml_format_rule_attribute()</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -7,7 +7,7 @@ Welcome to gmail-rules's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
    :caption: Contents:
 
 
@@ -16,9 +16,9 @@ gmail_rules
 .. automodule:: gmail_rules
    :members:
 
-gmail_rules.rule
-================
-.. automodule:: gmail_rules.rule
+gmail_rules.rules
+=================
+.. automodule:: gmail_rules.rules
    :members:
 
 gmail_rules.utils
