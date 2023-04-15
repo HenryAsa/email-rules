@@ -34,26 +34,25 @@ body:
   validations:
     required: false
 
-  - type: textarea
-    id: screenshot
-    attributes:
-      label: "Screenshots"
-      description: If applicable, add screenshots to help explain your problem.
-      value: |
-        ![DESCRIPTION](LINK.png)
-      render: bash
-    validations:
-      required: false
+- type: textarea
+  attributes:
+    label: "Screenshots"
+    description: If applicable, add screenshots to help explain your problem.
+    value: |
+      ![DESCRIPTION](LINK.png)
+    render: bash
+  validations:
+    required: false
 
-  - type: dropdown
-    id: os
-    attributes:
-      label: "OS"
-      description: What is the impacted environment?
-      multiple: true
-      options:
-        - Windows
-        - Linux
-        - Mac
-    validations:
-      required: false
+- type: dropdown
+  id: os
+  attributes:
+    label: "OS"
+    description: What is the impacted environment?
+    multiple: true
+    options:
+      - Windows
+      - Linux
+      - Mac
+  validations:
+    required: false
