@@ -2,7 +2,7 @@
 from gmail_rules.utils import helpers as _hp
 from gmail_rules.rules.rule import Rule as _Rule
 
-from . import set_module
+from gmail_rules.rules import set_module
 
 __all__ = ["Copy_To"]
 
