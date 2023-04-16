@@ -21,7 +21,7 @@ body:
       << your code here >>
     render: python
   validations:
-    required: true
+    required: false
   
 - type: textarea
   attributes:
@@ -51,8 +51,8 @@ body:
     description: What is the impacted environment?
     multiple: true
     options:
+      - Mac
       - Windows
       - Linux
-      - Mac
   validations:
     required: false
