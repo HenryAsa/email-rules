@@ -51,6 +51,8 @@
           - name: Lint Code Base
             uses: docker://github/super-linter:latest
             env:
+              FILTER_REGEX_INCLUDE: gmail_rules/ tests/
+              FILTER_REGEX_EXCLUDE: build/ dist/ docs/
               VALIDATE_ALL_CODEBASE: true
               DEFAULT_BRANCH: main
               GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
