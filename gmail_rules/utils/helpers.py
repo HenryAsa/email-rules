@@ -38,3 +38,23 @@ def indent(multiline_text: str, amount: int = 1, indent_character: str = "\t") -
         The texted indented with `amount` instances of the `indent_character`
     """
     return textwrap.indent(multiline_text, amount * indent_character)
+
+def convert_to_parseable_string(string_to_parse: str) -> str:
+    """Converts a rich-text string into a parseable string containing tabs and newlines
+
+    This function takes a string and allows newlines/tabs to be displayed as `\\n` and `\\t`
+    rather than a newline and a tab
+
+    Parameters
+    ----------
+    string_to_parse : str
+        String to display parsed richtext operations for
+
+    Returns
+    -------
+    str
+        String displaying `\\n` and `\\t` rather than newlines and tabs
+    """
+    final_string = string_to_parse
+    final_string = final_string.replace("\n", "\\n").replace("\t", "\\t").replace("    ", "\\t")
+    return final_string
