@@ -22,7 +22,7 @@ class Move_To(_Rule):
         This is a dictionary containing default rule attributes
     """
 
-    def __init__(self, rule_label: str, list_of_emails: list = None, rule_defaults: dict = {}) -> None:
+    def __init__(self, rule_label: str, list_of_emails: list = [], rule_defaults: dict = {}) -> None:
         """Initialize a Move_To rule object which is a subclass of :obj:`Rule`
 
         Parameters

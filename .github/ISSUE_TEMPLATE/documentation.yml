@@ -1,26 +1,27 @@
-name: Documentation
-description: Report an issue related to documentation.
-title: "DOC: <Please write a comprehensive title after the 'DOC: ' prefix>"
-labels: [Documentation]
+---
+  name: Documentation
+  description: Report an issue related to documentation.
+  title: "DOC: <Please write a comprehensive title after the 'DOC: ' prefix>"
+  labels: [Documentation]
 
-body:
-- type: textarea
-  attributes: 
-    label: "Issue with current documentation:"
-    placeholder: |
-      The DOCSTRING for function `function_with_issue()`
-      in `/directory/subdirectory/file_with_issue.py`
-      reports that it returns a `dict` but it actually returns a `list`
-    description: >
-      Please make sure to follow the NumpyDoc format outlined here:
-      https://numpydoc.readthedocs.io/en/latest/format.html.
+  body:
+  - type: textarea
+    attributes: 
+      label: "Issue with current documentation:"
+      placeholder: |
+        The DOCSTRING for function `function_with_issue()`
+        in `/directory/subdirectory/file_with_issue.py`
+        reports that it returns a `dict` but it actually returns a `list`
+      description: >
+        Please make sure to follow the NumpyDoc format outlined here:
+        https://numpydoc.readthedocs.io/en/latest/format.html.
 
-- type: textarea
-  attributes:
-    label: "Where the issue is and what it impacts:"
-    placeholder: |
-      `function_with_issue()` is located in:
-      `/directory/subdirectory/file_with_issue.py`
-    description: >
-      Please describe where the issue in documentation is
-      like `/directory/subdirectory/file_with_issue.py`.
+  - type: textarea
+    attributes:
+      label: "Where the issue is and what it impacts:"
+      placeholder: |
+        `function_with_issue()` is located in:
+        `/directory/subdirectory/file_with_issue.py`
+      description: >
+        Please describe where the issue in documentation is
+        like `/directory/subdirectory/file_with_issue.py`.
