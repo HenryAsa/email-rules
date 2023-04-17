@@ -19,8 +19,8 @@ class Rule:
         Name of the mail rule.
     final_rule : `str`
         String representing the final formatted rule
-    emails_list : `list[str]`
-        List of email addresses that the mail rule applies to
+    emails_list : `list`
+        List of email addresses (:obj:`str`) that the mail rule applies to
     concatenated_emails : `str`
         String of email addresses that are concatenated together
     rule_header : `str`
@@ -31,7 +31,7 @@ class Rule:
 
     """
 
-    def __init__(self, list_of_emails: list = None, rule_defaults: dict = {}, rule_name: str = "Mail Filter") -> None:
+    def __init__(self, list_of_emails: list = [], rule_defaults: dict = {}, rule_name: str = "Mail Filter") -> None:
         """Initialize a new Rule object
 
         Parameters
@@ -46,10 +46,10 @@ class Rule:
         self.name: str = rule_name
         """This `str` is the title of the rule"""
 
-        self._attribute_order: tuple[str] = ("label", "from", "subject", "hasTheWord", "doesNotHaveTheWord", "shouldNeverSpam", "shouldArchive", "sizeOperator", "sizeUnit")
+        self._attribute_order: tuple = ("label", "from", "subject", "hasTheWord", "doesNotHaveTheWord", "shouldNeverSpam", "shouldArchive", "sizeOperator", "sizeUnit")
         """Hard-coded order that the rule attributes should appear in"""
 
-        self._possible_attributes: frozenset[str] = frozenset(self._attribute_order)
+        self._possible_attributes: frozenset = frozenset(self._attribute_order)
         """`frozenset` of the valid attributes defined in `self._attribute_order`"""
 
         self.rule_attributes: dict[str, str] = {}
@@ -59,16 +59,14 @@ class Rule:
             self.add_attribute(default_attribute_name, default_attribute_value)
 
         ###### CHECK WHETHER RULE RELIES ON SPECIFIC EMAIL ADDRESSES ######
-        self.emails_list: list[str] = []
+        self.emails_list: list = self.flatten_list(list_of_emails)
         """Flattened `list` of emails that will be included in the mail rule"""
 
-        self.concatenated_emails: str = ""
+        self.concatenated_emails: str = self.concatenate(self.emails_list)
         """A `str` of the concatenated email addresses that this rule applies to"""
 
-        if list_of_emails is not None:
+        if list_of_emails != []:
             # THIS IS THE CASE WHEN SPECIFIC EMAILS ARE PARSED INTO THE FUNCTION
-            self.emails_list = self.flatten_list(list_of_emails)
-            self.concatenated_emails = self.concatenate(self.emails_list)
             self.add_attribute("from", self.concatenated_emails)
         ###### CHECK WHETHER RULE RELIES ON SPECIFIC EMAIL ADDRESSES ######
 
