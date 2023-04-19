@@ -2,7 +2,9 @@
 from gmail_rules.actions import set_module
 import gmail_rules.rules as _R
 import gmail_rules.utils.helpers as _hp
+import torch
 
+torch.nn.ModuleList
 @set_module("gmail_rules.actions")
 class Rule_Collection:
     """Collection of :obj:`Rule`s that can be organized and stored together
@@ -26,7 +28,8 @@ class Rule_Collection:
     def __getitem__(self, name: str) -> _R.Rule:
         """Allows easy retrieval of :obj:`Rule`s stored in a `Rule_Collection`
 
-        Gets the :obj:`Rule` stored in `self.rules_dict[name]`
+        Gets the :obj:`Rule` stored in `self.rules_dict[name]`.  Can retreive a rule
+        from a collection by running `Rule_Collection[rule_name]`
 
         Parameters
         ----------
