@@ -253,9 +253,6 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
     
-    
-    <li class="breadcrumb-item"><a href="../rules.html" class="nav-link">gmail_rules.rules</a></li>
-    
     <li class="breadcrumb-item active" aria-current="page">gmail_rules.rules.rule</li>
   </ul>
 </nav>
@@ -295,8 +292,8 @@ document.write(`
 <span class="sd">        Name of the mail rule.</span>
 <span class="sd">    final_rule : `str`</span>
 <span class="sd">        String representing the final formatted rule</span>
-<span class="sd">    emails_list : `list[str]`</span>
-<span class="sd">        List of email addresses that the mail rule applies to</span>
+<span class="sd">    emails_list : `list`</span>
+<span class="sd">        List of email addresses (:obj:`str`) that the mail rule applies to</span>
 <span class="sd">    concatenated_emails : `str`</span>
 <span class="sd">        String of email addresses that are concatenated together</span>
 <span class="sd">    rule_header : `str`</span>
@@ -307,7 +304,7 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_of_emails</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">rule_defaults</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">rule_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Mail Filter&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_of_emails</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">rule_defaults</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">rule_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Mail Filter&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new Rule object</span>
 
 <span class="sd">        Parameters</span>
@@ -322,10 +319,10 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">rule_name</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;This `str` is the title of the rule&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_attribute_order</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;hasTheWord&quot;</span><span class="p">,</span> <span class="s2">&quot;doesNotHaveTheWord&quot;</span><span class="p">,</span> <span class="s2">&quot;shouldNeverSpam&quot;</span><span class="p">,</span> <span class="s2">&quot;shouldArchive&quot;</span><span class="p">,</span> <span class="s2">&quot;sizeOperator&quot;</span><span class="p">,</span> <span class="s2">&quot;sizeUnit&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_attribute_order</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;hasTheWord&quot;</span><span class="p">,</span> <span class="s2">&quot;doesNotHaveTheWord&quot;</span><span class="p">,</span> <span class="s2">&quot;shouldNeverSpam&quot;</span><span class="p">,</span> <span class="s2">&quot;shouldArchive&quot;</span><span class="p">,</span> <span class="s2">&quot;sizeOperator&quot;</span><span class="p">,</span> <span class="s2">&quot;sizeUnit&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Hard-coded order that the rule attributes should appear in&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_possible_attributes</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_attribute_order</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_possible_attributes</span><span class="p">:</span> <span class="nb">frozenset</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_attribute_order</span><span class="p">)</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;`frozenset` of the valid attributes defined in `self._attribute_order`&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rule_attributes</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
@@ -335,16 +332,14 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="n">default_attribute_name</span><span class="p">,</span> <span class="n">default_attribute_value</span><span class="p">)</span>
 
         <span class="c1">###### CHECK WHETHER RULE RELIES ON SPECIFIC EMAIL ADDRESSES ######</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">emails_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emails_list</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flatten_list</span><span class="p">(</span><span class="n">list_of_emails</span><span class="p">)</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Flattened `list` of emails that will be included in the mail rule&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">concatenated_emails</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">concatenated_emails</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">emails_list</span><span class="p">)</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;A `str` of the concatenated email addresses that this rule applies to&quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">list_of_emails</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">list_of_emails</span> <span class="o">!=</span> <span class="p">[]:</span>
             <span class="c1"># THIS IS THE CASE WHEN SPECIFIC EMAILS ARE PARSED INTO THE FUNCTION</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">emails_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flatten_list</span><span class="p">(</span><span class="n">list_of_emails</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">concatenated_emails</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">emails_list</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">concatenated_emails</span><span class="p">)</span>
         <span class="c1">###### CHECK WHETHER RULE RELIES ON SPECIFIC EMAIL ADDRESSES ######</span>
 
