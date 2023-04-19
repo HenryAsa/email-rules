@@ -8,25 +8,12 @@ Welcome to gmail-rules's documentation!
 
 .. toctree::
    :maxdepth: 5
-   :caption: Contents:
+
+   gmail_rules.rules
+   gmail_rules.utils
 
 
-gmail_rules
-===========
-.. automodule:: gmail_rules
-   :members:
-
-gmail_rules.rules
-=================
-.. automodule:: gmail_rules.rules
-   :members:
-
-gmail_rules.utils
-=================
-.. automodule:: gmail_rules.utils
-   :members:
-   
-Indices and tables
+Indices and Tables
 ==================
 
 * :ref:`genindex`
