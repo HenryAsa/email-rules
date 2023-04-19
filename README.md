@@ -1,4 +1,4 @@
-# gmail-rules
+# email-rules
 Repository to build Gmail Rules and Filters
 
 
