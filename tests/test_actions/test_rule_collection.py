@@ -54,3 +54,29 @@ class TestRuleCollection:
 
         assert self.collection_1[rule_2.name] is rule_2
         assert self.collection_1[rule_2.name].final_rule_str == rule_2_str
+
+    def test_adding_multiple_rules_to_collection(self):
+        """Test adding multiple rules to the collection at once
+        """
+        new_rule_1 = _R.Rule(["mango@gmail.com"], rule_name="Testing")
+        new_rule_1.add_attribute("subject", "[IMPORTANT] Mangos for Sale")
+        new_rule_2 = _R.Copy_To("fruits", ["banana@gmail.com", "kiwi@gmail.com"])
+        new_rule_2.add_attribute("subject", "FRUIT")
+
+        self.collection_1.add_rule([new_rule_1, new_rule_2])
+
+        assert new_rule_1 in self.collection_1.rules_dict.values()
+        assert new_rule_2 in self.collection_1.rules_dict.values()
+
+    def test_adding_multiple_rules_error_raised(self):
+        """Test adding multiple rules to the collection but one of the rules should raise an error
+        """
+        new_rule_1 = _R.Rule(["mangos@gmail.com"], rule_name="Testing Again")
+        new_rule_1.add_attribute("subject", "[IMPORTANT] Mangos for Sale")
+        new_rule_2 = _R.Copy_To("more fruits", ["bananas@gmail.com", "kiwi@gmail.com"])
+        new_rule_2.add_attribute("subject", "FRUIT")
+
+        not_a_rule = "cheese"
+
+        with pytest.raises(TypeError):
+            self.collection_1.add_rule([new_rule_1, new_rule_2, not_a_rule])
