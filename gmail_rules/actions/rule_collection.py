@@ -53,26 +53,21 @@ class Rule_Collection:
         return self.build_final_string()
 
     #### TODO: FIX THIS TO ACCOUNT FOR INDENTING ####
-    def add_rule(self, rules_to_add: _R.Rule | list[_R.Rule]):
-        try:
-            if isinstance(rules_to_add, _R.Rule):
-                rules_to_add = [rules_to_add]
-            elif isinstance(rules_to_add[0], _R.Rule):
-                pass
-            else:
-                raise TypeError(f"rule_to_add is not of type Rule or a list of Rules.  It is of type {type(rules_to_add)}")
+    def add_rule(self, rule_to_add: _R.Rule):
+        if not isinstance(rule_to_add, _R.Rule):
+            raise TypeError(f"rule_to_add is not of type Rule.  It is of type {type(rule_to_add)}")
+        if rule_to_add.name in self.rules_dict:
+            raise KeyError(f"{rule_to_add.name} is already in the collection of rules.  Use update_rule() to change the value of this rule")
 
-        except TypeError:
-            raise TypeError(f"rule_to_add is not of type Rule or a list of Rules.  It is of type {type(rules_to_add)}")
+        self.rules_dict[rule_to_add.name] = rule_to_add
+        self.rules_list.append(rule_to_add)
+    
+    def add_rules(self, rules_to_add: list[_R.Rule]):
+        if not hasattr(rules_to_add, "__iter__"):
+            raise TypeError(f"rules_to_add needs to be an iterable, but currently is of type {type(rules_to_add)}")
 
         for rule in rules_to_add:
-            if not isinstance(rule, _R.Rule):
-                raise TypeError(f"rule is not of type Rule.  It is of type {type(rule)}")
-            if rule.name in self.rules_dict:
-                raise KeyError(f"{rule.name} is already in the collection of rules.  Use update_rule() to change the value of this rule")
-
-            self.rules_list.append(rule)
-            self.rules_dict[rule.name] = rule
+            self.add_rule(rule)
 
     def build_final_string(self, additional_comment: str = None):
         final_string = ""
