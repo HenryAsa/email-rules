@@ -66,11 +66,13 @@ class Rule_Collection:
             raise TypeError(f"rule_to_add is not of type Rule or a list of Rules.  It is of type {type(rules_to_add)}")
 
         for rule in rules_to_add:
+            if not isinstance(rule, _R.Rule):
+                raise TypeError(f"rule is not of type Rule.  It is of type {type(rule)}")
             if rule.name in self.rules_dict:
                 raise KeyError(f"{rule.name} is already in the collection of rules.  Use update_rule() to change the value of this rule")
-            else:
-                self.rules_list.append(rule)
-                self.rules_dict[rule.name] = rule
+
+            self.rules_list.append(rule)
+            self.rules_dict[rule.name] = rule
 
     def build_final_string(self, additional_comment: str = None):
         final_string = ""
