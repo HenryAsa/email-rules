@@ -22,7 +22,7 @@ Please delete options that are not relevant.
 
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
 
-- [ ] Test A
+- [ ] Test A (Example: `tests/test_actions/test_rule_collection.py` --> `TestRuleCollection.test_adding_multiple_rules_to_collection()`)
 - [ ] Test B
 
 ## Checklist:
