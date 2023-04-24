@@ -54,6 +54,16 @@ class TestRuleCollection:
 
         assert self.collection_1[rule_2.name] is rule_2
         assert self.collection_1[rule_2.name].final_rule_str == rule_2_str
+    
+    def test_add_rule_with_same_name_to_collection(self):
+        """Ensure a KeyError is raised when rules with the same name are added to a collection
+        """
+        rule_1 = _R.Rule(rule_name="Duplicate Rule", rule_defaults={"subject": "This can be added to the collection"})
+        rule_2 = _R.Rule(rule_name="Duplicate Rule", rule_defaults={"subject": "This should not be added"})
+
+        self.collection_1.add_rule(rule_1)
+        with pytest.raises(KeyError):
+            self.collection_1.add_rule(rule_2)
 
     def test_adding_multiple_rules_to_collection(self):
         """Test adding multiple rules to the collection at once
@@ -63,7 +73,7 @@ class TestRuleCollection:
         new_rule_2 = _R.Copy_To("fruits", ["banana@gmail.com", "kiwi@gmail.com"])
         new_rule_2.add_attribute("subject", "FRUIT")
 
-        self.collection_1.add_rule([new_rule_1, new_rule_2])
+        self.collection_1.add_rules([new_rule_1, new_rule_2])
 
         assert new_rule_1 in self.collection_1.rules_dict.values()
         assert new_rule_2 in self.collection_1.rules_dict.values()
@@ -79,4 +89,4 @@ class TestRuleCollection:
         not_a_rule = "cheese"
 
         with pytest.raises(TypeError):
-            self.collection_1.add_rule([new_rule_1, new_rule_2, not_a_rule])
+            self.collection_1.add_rules([new_rule_1, new_rule_2, not_a_rule])
