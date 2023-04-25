@@ -101,7 +101,7 @@ class Rule_Collection:
         Parameters
         ----------
         additional_comment : str, optional
-            Adds a final comment above the entire rule string, by default None
+            Adds a final comment above the entire rule string, by default `None`
 
         Returns
         -------
