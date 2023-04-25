@@ -42,7 +42,7 @@ class Rule_Collection:
         return self.rules_dict[name]
 
     @property
-    def final_string(self):
+    def final_string(self) -> str:
         """Generates the final string representation of a collection of rules
 
         Returns
@@ -53,7 +53,21 @@ class Rule_Collection:
         return self.build_final_string()
 
     #### TODO: FIX THIS TO ACCOUNT FOR INDENTING ####
-    def add_rule(self, rule_to_add: _R.Rule):
+    def add_rule(self, rule_to_add: _R.Rule) -> None:
+        """Add a :obj:`Rule` to a `Rule_Collection`
+
+        Parameters
+        ----------
+        rule_to_add : :obj:`Rule`
+            This is the rule that should be added to this collection
+
+        Raises
+        ------
+        TypeError
+            Raises a `TypeError` if `rule_to_add` is not of type :obj:`Rule`
+        KeyError
+            Raises a `KeyError` if `rule_to_add` is already in the :obj:`Rule_Collection`
+        """
         if not isinstance(rule_to_add, _R.Rule):
             raise TypeError(f"rule_to_add is not of type Rule.  It is of type {type(rule_to_add)}")
         if rule_to_add.name in self.rules_dict:
@@ -62,21 +76,45 @@ class Rule_Collection:
         self.rules_dict[rule_to_add.name] = rule_to_add
         self.rules_list.append(rule_to_add)
     
-    def add_rules(self, rules_to_add: list[_R.Rule]):
+    def add_rules(self, rules_to_add: list[_R.Rule]) -> None:
+        """Add multiple :obj:`Rule` objects to the collection at once
+
+        Parameters
+        ----------
+        rules_to_add : list[_R.Rule]
+            Iterable that contains all of the :obj:`Rule`s to be added
+
+        Raises
+        ------
+        TypeError
+            Raises a `TypeError` if `rules_to_add` is not an iterable datatype
+        """
         if not hasattr(rules_to_add, "__iter__"):
             raise TypeError(f"rules_to_add needs to be an iterable, but currently is of type {type(rules_to_add)}")
 
         for rule in rules_to_add:
             self.add_rule(rule)
 
-    def build_final_string(self, additional_comment: str = None):
+    def build_final_string(self, additional_comment: str = None) -> str:
+        """Builds the final properly formatted collection of rules
+
+        Parameters
+        ----------
+        additional_comment : str, optional
+            Adds a final comment above the entire rule string, by default None
+
+        Returns
+        -------
+        str
+            final string representing all of the :obj:`Rule`s in the collection
+        """
         final_string = ""
+
+        if additional_comment is not None:
+            final_string += f"{_hp.add_xml_comment(additional_comment)}"
 
         for rule in reversed(self.rules_list):      ## MAYBE REMOVE REVERSAL
             final_string += f"\n\n{rule.build_rule()}"
-
-        if additional_comment is not None:
-            final_string = f"{_hp.add_xml_comment(additional_comment)}"
 
         return final_string
     #### TODO: FIX THIS TO ACCOUNT FOR INDENTING ^^^ ####
