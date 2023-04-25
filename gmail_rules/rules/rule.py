@@ -83,6 +83,7 @@ class Rule:
         Returns
         -------
         rule_attribute_xmls : `dict`
+            Dictionary where keys are the attribute and values are the xml representation of the attribute
         """
         rule_attributes_xmls = {}
         for attribute_name, attribute_value in self.rule_attributes.items():
@@ -92,11 +93,12 @@ class Rule:
 
     @property
     def rule_attributes_xmls_str(self) -> str:
-        """Converts `dict` of rule attributes into ordered `str` for use in final xml
+        """Converts :obj:`dict` of rule attributes into ordered `str` for use in final xml
 
         Returns
         -------
         rule_attribute_xmls_str : `str`
+            :obj:`str` representing this :obj:`Rule` as an xml
         """
         rule_attributes_xmls_str = ""
         current_rule_xmls = self.rule_attributes_xmls
@@ -109,7 +111,13 @@ class Rule:
 
     @property
     def final_rule_str(self) -> str:
-        """This is the final `str` that can be copied and pasted into an xml to define the rule"""
+        """This is the final `str` that can be copied and pasted into an xml to define the rule
+
+        Returns
+        -------
+        str
+            `str` representing the entire rule in xml format
+        """
         return self.build_rule()
 
     def _modify_possible_attributes(self, new_attribute: str) -> None:
@@ -124,10 +132,21 @@ class Rule:
         self._possible_attributes = frozenset(self._attribute_order)
 
     def flatten_list(self, list_to_flatten: list | list[list]) -> list:
-        """
+        """Converts a list of lists into a single flat list
+
         This function takes a `list` (of potentially nested lists) and recursively
         flattens the list so that it is just a single list of elements that are not
         of type `list`
+
+        Parameters
+        ----------
+        list_to_flatten : `list` or `list[list]`
+            Input `list` (or list of lists) to be flattened
+        
+        Returns
+        -------
+        list
+            Returns a final flat list that does not contain any nested lists
         """
         if list_to_flatten == []:
             return list_to_flatten
