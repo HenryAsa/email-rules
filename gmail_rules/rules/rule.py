@@ -145,9 +145,9 @@ class Rule:
         Parameters
         ----------
         elements_input : `list`
-            This is a list of items that should be concatenated together.
+            This is a list of items that should be concatenated together
         separator : `str`, default = `" OR "`, optional
-            This is the string that will be used to separate individual elements.
+            This is the string that will be used to separate individual elements, by default `" OR "`
 
         Returns
         -------
@@ -202,7 +202,7 @@ class Rule:
         value : str
             Value of the attribute
         is_custom_attribute : bool, optional
-            Defines whether the attribute being added is custom (use with caution), default = `False`
+            Defines whether the attribute being added is custom (use with caution), by default `False`
         """
         if name in self.rule_attributes:
             ## Raise Error when rule already contains a value for this attribute
@@ -219,6 +219,27 @@ class Rule:
             raise KeyError(f"{name} is not a valid filter attribute.  Check for typos")
 
         self.rule_attributes[name] = value
+
+    def add_attributes(self, attributes_to_add: dict) -> None:
+        """Add multiple attributes to a `Rule`
+
+        Parameters
+        ----------
+        attributes_to_add : dict
+            Dictionary where key is the name of the attribute to add (`str`)
+            and its value (`str`) is the value of the attribute to add corresponding
+            to that key
+
+        Raises
+        ------
+        TypeError
+            Raises a `TypeError` if `attributes_to_add` is not a dictionary
+        """
+        if not isinstance(attributes_to_add, dict):
+            raise TypeError(f"attributes_to_add needs to be a dictionary, but currently it is of type {type(attributes_to_add)}")
+
+        for attribute_name, attribute_value in attributes_to_add.items():
+            self.add_attribute(attribute_name, attribute_value)
 
     def build_rule(self) -> str:
         """
