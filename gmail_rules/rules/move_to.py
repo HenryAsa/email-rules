@@ -21,7 +21,7 @@ class Move_To(_Rule):
         This is a dictionary containing default rule attributes
     """
 
-    def __init__(self, rule_label: str, list_of_emails: list = [], rule_defaults: dict = {}) -> None:
+    def __init__(self, rule_label: str, list_of_emails: list = [], rule_defaults: dict = {}, rule_name: str = "") -> None:
         """Initialize a Move_To rule object which is a subclass of :obj:`Rule`
 
         Parameters
@@ -34,8 +34,12 @@ class Move_To(_Rule):
             applied to.
         rule_defaults : `dict`, optional
             This is a dictionary containing default rule attributes
+        rule_name : `str`, optional
+            This is the name of the specific rule
         """
-        rule_name = f"MOVE TO: {rule_label}"
+        if rule_name == "":
+            rule_name = f"MOVE TO: {rule_label}"
+
         rule_defaults.update(shouldNeverSpam = "true", shouldArchive = "true")
         ## Add rule-type specific flags to the flags dictionary
 

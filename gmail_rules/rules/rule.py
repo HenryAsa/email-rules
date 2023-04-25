@@ -202,7 +202,9 @@ class Rule:
         value : str
             Value of the attribute
         is_custom_attribute : bool, optional
-            Defines whether the attribute being added is custom (use with caution), default = `False`
+            Defines whether the attribute being added is custom (use with caution), default = `False`.
+            Use this with caution, as the mail rule interpreter may not be able to parse a rule with
+            a custom attribute
         """
         if name in self.rule_attributes:
             ## Raise Error when rule already contains a value for this attribute
