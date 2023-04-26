@@ -31,19 +31,10 @@
   
   - type: textarea
     attributes:
-      label: "Example Code of Intended Implementation and Feature:"
+      label: "Example Python Code of Intended Implementation and Feature:"
       description: >
         This code does not actually have to run, but should demonstrate how the new
         feature is intended to work.
-      value: |
-        Python Code:
-        ```python
-        # CODE HERE
-        ```
-
-        Shell Code:
-        ```shell
-        # CODE HERE
-        ```
+      render: python
     validations:
       required: false
