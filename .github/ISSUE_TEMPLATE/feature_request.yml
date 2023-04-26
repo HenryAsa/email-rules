@@ -9,11 +9,32 @@
     attributes:
       value: >
         If you're looking to request a new feature or change in functionality,
-        please describe the change hear.  Please include any links or related
+        please describe the change here.  Please include any links or related
         issues that are relevant to the feature request.
 
   - type: textarea
     attributes:
-      label: "Proposed new feature or change:"
+      label: "Description of the Proposed Feature or Change:"
     validations:
       required: true
+
+  - type: textarea
+    attributes:
+      label: "Useful Links and Documentation to Reference:"
+      description: >
+        Include any links or sources that have relevant information/documentation
+        on this subject.
+      placeholder: |
+        - [`PyTest Documentation`](https://docs.pytest.org/en/7.3.x/)
+    validations:
+      required: false
+  
+  - type: textarea
+    attributes:
+      label: "Example Python Code of Intended Implementation and Feature:"
+      description: >
+        This code does not actually have to run, but should demonstrate how the new
+        feature is intended to work.
+      render: python
+    validations:
+      required: false
