@@ -39,7 +39,7 @@
     attributes:
       label: "Screenshots"
       description: If applicable, add screenshots to help explain your problem.
-      palceholder: |
+      placeholder: |
         ![DESCRIPTION](LINK.png)
       render: bash
     validations:
