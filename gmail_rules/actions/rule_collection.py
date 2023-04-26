@@ -53,47 +53,58 @@ class Rule_Collection:
         return self.build_final_string()
 
     #### TODO: FIX THIS TO ACCOUNT FOR INDENTING ####
-    def add_rule(self, rule_to_add: _R.Rule) -> None:
-        """Add a :obj:`Rule` to a `Rule_Collection`
+    def add_rules(self, rules_to_add: _R.Rule | list | tuple | set | frozenset | dict) -> None:
+        """Adds :obj:`Rule`s to a :obj:`Rule_Collection`
 
         Parameters
         ----------
-        rule_to_add : :obj:`Rule`
-            This is the rule that should be added to this collection
+        rules_to_add : :obj:`Rule` or list or tuple or set or frozenset or dict
+            The :obj:`Rule` (or :obj:`Rule`s) that should be added to the :obj:`Rule_Collection`
 
         Raises
         ------
-        TypeError
-            Raises a `TypeError` if `rule_to_add` is not of type :obj:`Rule`
         KeyError
-            Raises a `KeyError` if `rule_to_add` is already in the :obj:`Rule_Collection`
-        """
-        if not isinstance(rule_to_add, _R.Rule):
-            raise TypeError(f"rule_to_add is not of type Rule.  It is of type {type(rule_to_add)}")
-        if rule_to_add.name in self.rules_dict:
-            raise KeyError(f"{rule_to_add.name} is already in the collection of rules.  Use update_rule() to change the value of this rule")
-
-        self.rules_dict[rule_to_add.name] = rule_to_add
-        self.rules_list.append(rule_to_add)
-    
-    def add_rules(self, rules_to_add: list[_R.Rule]) -> None:
-        """Add multiple :obj:`Rule` objects to the collection at once
-
-        Parameters
-        ----------
-        rules_to_add : list[_R.Rule]
-            Iterable that contains all of the :obj:`Rule`s to be added
-
-        Raises
-        ------
+            Raises a `KeyError` when a certain rule is already in the collection
         TypeError
-            Raises a `TypeError` if `rules_to_add` is not an iterable datatype
+            Raises a `TypeError` when a rule is not of type :obj:`Rule`
+        TypeError
+            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`s
         """
-        if not hasattr(rules_to_add, "__iter__"):
+        if isinstance(rules_to_add, _R.Rule):
+            if rules_to_add.name in self.rules_dict:
+                raise KeyError(f"{rules_to_add.name} is already in the collection of rules.  Use update_rule() to change the value of this rule")
+
+            self.rules_dict[rules_to_add.name] = rules_to_add
+            self.rules_list.append(rules_to_add)
+
+        elif type(rules_to_add) in _hp.ITERABLE_DATA_TYPES:
+            for rule in rules_to_add:
+                self.add_rules(rule)
+
+        elif type(rules_to_add) not in _hp.ITERABLE_DATA_TYPES:
             raise TypeError(f"rules_to_add needs to be an iterable, but currently is of type {type(rules_to_add)}")
 
-        for rule in rules_to_add:
-            self.add_rule(rule)
+        else:
+            raise TypeError(f"rules_to_add is not of type Rule.  It is of type {type(rules_to_add)}")
+
+    def add_rule(self, rule_to_add: _R.Rule) -> None:
+        """Alias for :obj:`Rule_Collection.add_rules()`.  Adds :obj:`Rule`s to a :obj:`Rule_Collection`
+
+        Parameters
+        ----------
+        rules_to_add : list or tuple or set or frozenset or dict
+            The :obj:`Rule`s that should be added to the :obj:`Rule_Collection`
+
+        Raises
+        ------
+        KeyError
+            Raises a `KeyError` when a certain rule is already in the collection
+        TypeError
+            Raises a `TypeError` when a rule is not of type :obj:`Rule`
+        TypeError
+            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`s
+        """
+        self.add_rules(rule_to_add)
 
     def build_final_string(self, additional_comment: str = None) -> str:
         """Builds the final properly formatted collection of rules

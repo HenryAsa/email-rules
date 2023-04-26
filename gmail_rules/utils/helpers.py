@@ -1,7 +1,9 @@
 import textwrap
-import os
 
-TAB_SPACING = 4
+TAB_SPACING : int = 4
+"""Default amount of spaces used instead of a tab (`\\t`)"""
+ITERABLE_DATA_TYPES : set = {list, tuple, set, frozenset, dict}
+"""Iterable data types that can store multiple instances of other objects\n\nContains: `list`, `tuple`, `set`, `frozenset`, `dict`"""
 
 def add_xml_comment(comment_text: str) -> str:
     """Add an xml comment to a string (does not include for newlines `"\\n"`)
