@@ -43,6 +43,9 @@ class Rule:
         rule_name : `str`, optional
             name of the mail rule, by default `"Mail Filter"`
         """
+        self.labels: list = []
+        """This is a `list` containing all of the labels that should be applied to this rule"""
+
         self.name: str = rule_name
         """This `str` is the title of the rule"""
 
@@ -70,7 +73,7 @@ class Rule:
             self.add_attribute("from", self.concatenated_emails)
         ###### CHECK WHETHER RULE RELIES ON SPECIFIC EMAIL ADDRESSES ######
 
-        self.rule_header: str = f"{_hp.add_xml_comment(self.name)}\n<entry>\n\t<category term='filter'></category>\n\t<title>{self.name}</title>\n\t<content></content>"
+        self.rule_header: str = f"<entry>\n\t<category term='filter'></category>\n\t<title>{self.name}</title>\n\t<content></content>"
         """This is a `str` representing the top section of a mail rule that remains constant"""
 
         self.rule_footer: str = "\n</entry>"
@@ -208,7 +211,7 @@ class Rule:
         """
         if name in self.rule_attributes:
             ## Raise Error when rule already contains a value for this attribute
-            raise KeyError(f"{name} is already an attribute of {self.name}.  Consider calling self.update_attribute() to update the value of this attribute")
+            raise KeyError(f"{name} is already an attribute of {self.name}.  Consider calling {self.__class__.__name__}.update_attribute() to update the value of this attribute")
 
         if is_custom_attribute:
             ## Check whether we are using a custom attribute
@@ -220,7 +223,30 @@ class Rule:
             ## Raise Error if this attribute name is unallowed
             raise KeyError(f"{name} is not a valid filter attribute.  Check for typos")
 
+        if name == "label":
+            ## Labels are stored in self.labels, not in self.rule_attributes
+            # raise KeyError(f"Use {self.__class__.__name__}.add_label() or {self.__class__.__name__}.add_labels() to add a label to the rule")
+            self.add_labels(value)
+            return
+
         self.rule_attributes[name] = value
+
+    def add_label(self, label: str) -> None:
+        if isinstance(label, str):
+            self.labels.append(label)
+        elif type(label) in _hp.ITERABLE_DATA_TYPES:
+            self.add_labels(label)
+        else:
+            raise TypeError(f"The label being added is not a string.  It is of type {type(label)}")
+
+    def add_labels(self, labels: list | tuple | set | frozenset | dict) -> None:
+        if type(labels) in _hp.ITERABLE_DATA_TYPES:
+            for label in labels:
+                self.add_label(label)
+        elif isinstance(labels, str):
+            self.add_label(labels)
+        else:
+            raise TypeError(f"The labels being added are not in an iterable datatype.  They are of type {type(labels)}")
 
     def build_rule(self) -> str:
         """
@@ -229,7 +255,19 @@ class Rule:
         `rule_name` which is a `str` representing the name of the mail rule,
         but when the rule is parsed into Gmail, this gets ignored.
         """
-        final_rule = f"{self.rule_header}{self.rule_attributes_xmls_str}{self.rule_footer}"
+        final_rule = ""
+
+        if not self.labels:
+            final_rule += f"{_hp.add_xml_comment(self.name)}\n{self.rule_header}{self.rule_attributes_xmls_str}{self.rule_footer}"
+
+        else:
+            for label in self.labels:
+                print(label)
+                rule_comment = _hp.add_xml_comment(f'{self.name}' if len(self.labels) == 1 else f'{self.name} ({label})')
+                final_rule += f"{rule_comment}\n{self.rule_header}{self.xml_format_rule_attribute('label', label)}{self.rule_attributes_xmls_str}{self.rule_footer}\n"
+
+            final_rule = final_rule[:-1]
+
         final_rule = final_rule.expandtabs(_hp.TAB_SPACING)
 
         return final_rule
