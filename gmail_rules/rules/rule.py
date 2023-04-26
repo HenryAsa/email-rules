@@ -296,7 +296,7 @@ class Rule:
 
         elif type(labels) in _hp.ITERABLE_DATA_TYPES:
             for label in labels:
-                self.add_label(label)
+                self.add_labels(label)
 
         else:
             raise TypeError(f"The label being added is not a string.  It is of type {type(label)}")
