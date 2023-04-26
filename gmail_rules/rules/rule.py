@@ -290,10 +290,15 @@ class Rule:
 
         else:
             for label in self.labels:
-                rule_comment = _hp.add_xml_comment(f'{self.name}' if len(self.labels) == 1 else f'{self.name} ({label})')
+                rule_comment = _hp.add_xml_comment(self.name if len(self.labels) == 1 else f'{self.name} ({label})')
                 final_rule += f"{rule_comment}\n{self.rule_header}{self.xml_format_rule_attribute('label', label)}{self.rule_attributes_xmls_str}{self.rule_footer}\n"
 
             final_rule = final_rule[:-1]
+
+            if len(self.labels) > 1:
+                starting_comment = f"{_hp.add_xml_comment(f'START --- {self.name} --- START')}\n"
+                ending_comment = f"\n{_hp.add_xml_comment(f'END --- {self.name} --- END')}"
+                final_rule = f"{starting_comment}{final_rule}{ending_comment}"
 
         final_rule = final_rule.expandtabs(_hp.TAB_SPACING)
 

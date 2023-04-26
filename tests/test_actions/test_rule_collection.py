@@ -8,7 +8,7 @@ import gmail_rules.utils.helpers as _hp
 class TestRuleCollection:
 
     collection_1 : Rule_Collection = None
-    rule_1 = _R.Copy_To("rule_1", ["1"])
+    rule_1 = _R.Copy_To(rule_label="label_1", list_of_emails=["test_1@gmail.com"])
 
     def test_rule_collection_definition(self) -> None:
         """Test defining a new rule_collection
@@ -25,7 +25,7 @@ class TestRuleCollection:
         self.collection_1.add_rule(self.rule_1)
 
         ## CORRECT RULE STRING ##
-        rule_1_str_1 = "<!-- COPY TO: rule_1 -->\n<entry>\n\t<category term='filter'></category>\n\t<title>COPY TO: rule_1</title>\n\t<content></content>\n\t<apps:property name='label' value='rule_1'/>\n\t<apps:property name='from' value='1'/>\n\t<apps:property name='shouldNeverSpam' value='true'/>\n</entry>".expandtabs(_hp.TAB_SPACING)
+        rule_1_str_1 = "<!-- COPY TO: label_1 -->\n<entry>\n\t<category term='filter'></category>\n\t<title>COPY TO: label_1</title>\n\t<content></content>\n\t<apps:property name='label' value='label_1'/>\n\t<apps:property name='from' value='test_1@gmail.com'/>\n\t<apps:property name='shouldNeverSpam' value='true'/>\n</entry>".expandtabs(_hp.TAB_SPACING)
 
         assert self.collection_1[self.rule_1.name] is self.rule_1
         assert self.collection_1[self.rule_1.name].final_rule_str == rule_1_str_1
@@ -37,7 +37,7 @@ class TestRuleCollection:
         self.rule_1.add_attribute("subject", "233")
 
         ## CORRECT RULE STRING ##
-        rule_1_str_2 = "<!-- COPY TO: rule_1 -->\n<entry>\n\t<category term='filter'></category>\n\t<title>COPY TO: rule_1</title>\n\t<content></content>\n\t<apps:property name='label' value='rule_1'/>\n\t<apps:property name='from' value='1'/>\n\t<apps:property name='subject' value='233'/>\n\t<apps:property name='shouldNeverSpam' value='true'/>\n</entry>".expandtabs(_hp.TAB_SPACING)
+        rule_1_str_2 = "<!-- COPY TO: label_1 -->\n<entry>\n\t<category term='filter'></category>\n\t<title>COPY TO: label_1</title>\n\t<content></content>\n\t<apps:property name='label' value='label_1'/>\n\t<apps:property name='from' value='test_1@gmail.com'/>\n\t<apps:property name='subject' value='233'/>\n\t<apps:property name='shouldNeverSpam' value='true'/>\n</entry>".expandtabs(_hp.TAB_SPACING)
 
         assert self.collection_1[self.rule_1.name] is self.rule_1
         assert self.collection_1[self.rule_1.name].final_rule_str == rule_1_str_2
@@ -46,11 +46,11 @@ class TestRuleCollection:
         """Test having more than one rule in a collection
         """
         ## ADD RULE_2
-        rule_2 = _R.Copy_To("rule_2", ["Beijing", "Shanghai"])
+        rule_2 = _R.Copy_To(rule_label="label_2", list_of_emails=["Beijing@gmail.com", "Shanghai@gmail.com"])
         self.collection_1.add_rule(rule_2)
 
         ## CORRECT RULE_2 STRING ##
-        rule_2_str = "<!-- COPY TO: rule_2 -->\n<entry>\n\t<category term='filter'></category>\n\t<title>COPY TO: rule_2</title>\n\t<content></content>\n\t<apps:property name='label' value='rule_2'/>\n\t<apps:property name='from' value='Beijing OR Shanghai'/>\n\t<apps:property name='shouldNeverSpam' value='true'/>\n</entry>".expandtabs(_hp.TAB_SPACING)
+        rule_2_str = "<!-- COPY TO: label_2 -->\n<entry>\n\t<category term='filter'></category>\n\t<title>COPY TO: label_2</title>\n\t<content></content>\n\t<apps:property name='label' value='label_2'/>\n\t<apps:property name='from' value='Beijing@gmail.com OR Shanghai@gmail.com'/>\n\t<apps:property name='shouldNeverSpam' value='true'/>\n</entry>".expandtabs(_hp.TAB_SPACING)
 
         assert self.collection_1[rule_2.name] is rule_2
         assert self.collection_1[rule_2.name].final_rule_str == rule_2_str
@@ -68,9 +68,9 @@ class TestRuleCollection:
     def test_adding_multiple_rules_to_collection(self):
         """Test adding multiple rules to the collection at once
         """
-        new_rule_1 = _R.Rule(["mango@gmail.com"], rule_name="Testing")
+        new_rule_1 = _R.Rule(list_of_emails=["mango@gmail.com"], rule_name="Testing")
         new_rule_1.add_attribute("subject", "[IMPORTANT] Mangos for Sale")
-        new_rule_2 = _R.Copy_To("fruits", ["banana@gmail.com", "kiwi@gmail.com"])
+        new_rule_2 = _R.Copy_To(rule_label="fruits", list_of_emails=["banana@gmail.com", "kiwi@gmail.com"])
         new_rule_2.add_attribute("subject", "FRUIT")
 
         self.collection_1.add_rules([new_rule_1, new_rule_2])
