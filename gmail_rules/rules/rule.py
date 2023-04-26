@@ -208,6 +208,13 @@ class Rule:
             Defines whether the attribute being added is custom (use with caution), default = `False`.
             Use this with caution, as the mail rule interpreter may not be able to parse a rule with
             a custom attribute
+
+        Raises
+        ------
+        KeyError
+            Raises a `KeyError` when an attribute has already been defined for this rule
+        KeyError
+            Raises a `KeyError` if an attribute is not valid
         """
         if name in self.rule_attributes:
             ## Raise Error when rule already contains a value for this attribute
@@ -231,22 +238,43 @@ class Rule:
 
         self.rule_attributes[name] = value
 
-    def add_label(self, label: str) -> None:
-        if isinstance(label, str):
-            self.labels.append(label)
-        elif type(label) in _hp.ITERABLE_DATA_TYPES:
-            self.add_labels(label)
+    def add_labels(self, labels: str | list | tuple | set | frozenset | dict) -> None:
+        """Adds labels to the mail rule
+
+        Parameters
+        ----------
+        labels : list | tuple | set | frozenset | dict
+            The label (or labels) to be added to the rule
+
+        Raises
+        ------
+        TypeError
+            Raises a `TypeError` if the label is not a valid type
+        """
+        if isinstance(labels, str):
+            self.labels.append(labels)
+
+        elif type(labels) in _hp.ITERABLE_DATA_TYPES:
+            for label in labels:
+                self.add_label(label)
+
         else:
             raise TypeError(f"The label being added is not a string.  It is of type {type(label)}")
 
-    def add_labels(self, labels: list | tuple | set | frozenset | dict) -> None:
-        if type(labels) in _hp.ITERABLE_DATA_TYPES:
-            for label in labels:
-                self.add_label(label)
-        elif isinstance(labels, str):
-            self.add_label(labels)
-        else:
-            raise TypeError(f"The labels being added are not in an iterable datatype.  They are of type {type(labels)}")
+    def add_label(self, label: str) -> None:
+        """Alias for :obj:`Rule.add_label()`.  Adds labels to the mail rule
+
+        Parameters
+        ----------
+        labels : list | tuple | set | frozenset | dict
+            The label (or labels) to be added to the rule
+
+        Raises
+        ------
+        TypeError
+            Raises a `TypeError` if the label is not a valid type
+        """
+        self.add_labels(label)
 
     def build_rule(self) -> str:
         """
@@ -262,7 +290,6 @@ class Rule:
 
         else:
             for label in self.labels:
-                print(label)
                 rule_comment = _hp.add_xml_comment(f'{self.name}' if len(self.labels) == 1 else f'{self.name} ({label})')
                 final_rule += f"{rule_comment}\n{self.rule_header}{self.xml_format_rule_attribute('label', label)}{self.rule_attributes_xmls_str}{self.rule_footer}\n"
 
