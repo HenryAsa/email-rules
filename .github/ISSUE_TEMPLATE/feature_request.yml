@@ -14,6 +14,6 @@
 
   - type: textarea
     attributes:
-      label: "Proposed new feature or change:"
+      label: "## Brief Description of the Proposed Feature or Change:"
     validations:
       required: true
