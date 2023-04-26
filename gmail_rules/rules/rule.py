@@ -86,6 +86,7 @@ class Rule:
         Returns
         -------
         rule_attribute_xmls : `dict`
+            Dictionary where keys are the attribute and values are the xml representation of the attribute
         """
         rule_attributes_xmls = {}
         for attribute_name, attribute_value in self.rule_attributes.items():
@@ -95,11 +96,12 @@ class Rule:
 
     @property
     def rule_attributes_xmls_str(self) -> str:
-        """Converts `dict` of rule attributes into ordered `str` for use in final xml
+        """Converts :obj:`dict` of rule attributes into ordered `str` for use in final xml
 
         Returns
         -------
         rule_attribute_xmls_str : `str`
+            :obj:`str` representing this :obj:`Rule` as an xml
         """
         rule_attributes_xmls_str = ""
         current_rule_xmls = self.rule_attributes_xmls
@@ -112,7 +114,13 @@ class Rule:
 
     @property
     def final_rule_str(self) -> str:
-        """This is the final `str` that can be copied and pasted into an xml to define the rule"""
+        """This is the final `str` that can be copied and pasted into an xml to define the rule
+
+        Returns
+        -------
+        str
+            `str` representing the entire rule in xml format
+        """
         return self.build_rule()
 
     def _modify_possible_attributes(self, new_attribute: str) -> None:
@@ -127,10 +135,21 @@ class Rule:
         self._possible_attributes = frozenset(self._attribute_order)
 
     def flatten_list(self, list_to_flatten: list | list[list]) -> list:
-        """
+        """Converts a list of lists into a single flat list
+
         This function takes a `list` (of potentially nested lists) and recursively
         flattens the list so that it is just a single list of elements that are not
         of type `list`
+
+        Parameters
+        ----------
+        list_to_flatten : `list` or `list[list]`
+            Input `list` (or list of lists) to be flattened
+        
+        Returns
+        -------
+        list
+            Returns a final flat list that does not contain any nested lists
         """
         if list_to_flatten == []:
             return list_to_flatten
@@ -148,9 +167,9 @@ class Rule:
         Parameters
         ----------
         elements_input : `list`
-            This is a list of items that should be concatenated together.
+            This is a list of items that should be concatenated together
         separator : `str`, default = `" OR "`, optional
-            This is the string that will be used to separate individual elements.
+            This is the string that will be used to separate individual elements, by default `" OR "`
 
         Returns
         -------
@@ -205,7 +224,7 @@ class Rule:
         value : str
             Value of the attribute
         is_custom_attribute : bool, optional
-            Defines whether the attribute being added is custom (use with caution), default = `False`.
+            Defines whether the attribute being added is custom (use with caution), by default `False`.
             Use this with caution, as the mail rule interpreter may not be able to parse a rule with
             a custom attribute
 
@@ -237,6 +256,27 @@ class Rule:
             return
 
         self.rule_attributes[name] = value
+
+    def add_attributes(self, attributes_to_add: dict) -> None:
+        """Add multiple attributes to a `Rule`
+
+        Parameters
+        ----------
+        attributes_to_add : dict
+            Dictionary where key is the name of the attribute to add (`str`)
+            and its value (`str`) is the value of the attribute to add corresponding
+            to that key
+
+        Raises
+        ------
+        TypeError
+            Raises a `TypeError` if `attributes_to_add` is not a dictionary
+        """
+        if not isinstance(attributes_to_add, dict):
+            raise TypeError(f"attributes_to_add needs to be a dictionary, but currently it is of type {type(attributes_to_add)}")
+
+        for attribute_name, attribute_value in attributes_to_add.items():
+            self.add_attribute(attribute_name, attribute_value)
 
     def add_labels(self, labels: str | list | tuple | set | frozenset | dict) -> None:
         """Adds labels to the mail rule

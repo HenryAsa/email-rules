@@ -42,7 +42,7 @@ class Rule_Collection:
         return self.rules_dict[name]
 
     @property
-    def final_string(self):
+    def final_string(self) -> str:
         """Generates the final string representation of a collection of rules
 
         Returns
@@ -106,14 +106,26 @@ class Rule_Collection:
         """
         self.add_rules(rule_to_add)
 
-    def build_final_string(self, additional_comment: str = None):
+    def build_final_string(self, additional_comment: str = None) -> str:
+        """Builds the final properly formatted collection of rules
+
+        Parameters
+        ----------
+        additional_comment : str, optional
+            Adds a final comment above the entire rule string, by default `None`
+
+        Returns
+        -------
+        str
+            final string representing all of the :obj:`Rule`s in the collection
+        """
         final_string = ""
+
+        if additional_comment is not None:
+            final_string += f"{_hp.add_xml_comment(additional_comment)}"
 
         for rule in reversed(self.rules_list):      ## MAYBE REMOVE REVERSAL
             final_string += f"\n\n{rule.build_rule()}"
-
-        if additional_comment is not None:
-            final_string = f"{_hp.add_xml_comment(additional_comment)}"
 
         return final_string
     #### TODO: FIX THIS TO ACCOUNT FOR INDENTING ^^^ ####
