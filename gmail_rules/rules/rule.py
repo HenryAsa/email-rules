@@ -134,7 +134,7 @@ class Rule:
         self._attribute_order = self._attribute_order + (new_attribute,)
         self._possible_attributes = frozenset(self._attribute_order)
 
-    def flatten_list(self, list_to_flatten: list | list[list]) -> list:
+    def flatten_list(self, list_to_flatten: list) -> list:
         """Converts a list of lists into a single flat list
 
         This function takes a `list` (of potentially nested lists) and recursively
@@ -143,7 +143,7 @@ class Rule:
 
         Parameters
         ----------
-        list_to_flatten : `list` or `list[list]`
+        list_to_flatten : `list`
             Input `list` (or list of lists) to be flattened
         
         Returns
