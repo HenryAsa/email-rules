@@ -1,7 +1,7 @@
 import textwrap
 
 TAB_SPACING : int = 4
-"""Default amount of spaces used instead of a tab (`\\t`)"""
+"""Default amount of spaces used instead of a tab (`"\\t"`)"""
 ITERABLE_DATA_TYPES : set = {list, tuple, set, frozenset, dict}
 """Iterable data types that can store multiple instances of other objects\n\nContains: `list`, `tuple`, `set`, `frozenset`, `dict`"""
 
@@ -10,28 +10,28 @@ def add_xml_comment(comment_text: str) -> str:
 
     Parameters
     ----------
-    comment_text : `str`
+    comment_text : str
         Text that will be added as a comment
 
     Returns
     -------
-    `str`
+    str
         xml comment of `comment_text`
     """
     return f'<!-- {comment_text} -->'
 
 def indent(multiline_text: str, amount: int = 1, indent_character: str = "\t") -> str:
-    """Indents a string with `amount` `indent_character`s
+    """Indents a string with `amount` `indent_character`
 
     Prefix each newline (`"\\n"`) in multiline_text with `amount * indent_character`
 
     Parameters
     ----------
-    multiline_text : `str`
-        Multiline `str` containing `"\\n"` that should be indented
-    amount : `int`, optional
+    multiline_text : str
+        Multiline str containing `"\\n"` that should be indented
+    amount : int, optional
         The amount that `multiline_text` should be indented by, defaulted to 1
-    indent_character : `str`, optional
+    indent_character : str, optional
         The character that `multiline_text` should be indented with, defaulted to `"\\t"`
 
     Returns
