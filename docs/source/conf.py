@@ -11,14 +11,13 @@
 
 import os
 import sys
-print(os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('../..'))
 sys.setrecursionlimit(1500)
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'gmail-rules'
+project = 'email-rules'
 copyright = '2023, Henry Asa'
 author = 'Henry Asa'
 release = '0.0.0'
@@ -29,17 +28,32 @@ release = '0.0.0'
 source_suffix = '.rst'
 
 extensions = [
-    'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
+    # 'numpydoc',
     'sphinx.ext.intersphinx',
     'sphinx.ext.coverage',
+    'sphinx.ext.doctest',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.napoleon',
     'sphinx.ext.todo',
-    'sphinx.ext.doctest'
+    'sphinx.ext.graphviz',
+    'sphinx.ext.ifconfig',
+    # 'sphinx_design'
 ]
 
+# Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
+
+# The suffix of source filenames.
+source_suffix = '.rst'
+
+# If true, '()' will be appended to :func: etc. cross-reference text.
+add_function_parentheses = True
+
+# If true, the current module name will be prepended to all description
+# unit titles (such as .. function::).
+add_module_names = False
 
 exclude_patterns = [
     '_build',
@@ -65,6 +79,10 @@ intersphinx_mapping = {
     'dlpack': ('https://dmlc.github.io/dlpack/latest', None)
 }
 
+# -----------------------------------------------------------------------------
+# Autosummary
+# -----------------------------------------------------------------------------
+autosummary_generate = True
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -73,3 +91,29 @@ intersphinx_mapping = {
 # html_theme = 'alabaster'
 html_theme = 'pydata_sphinx_theme'
 # html_static_path = ['_static']
+
+"""
+# Configure the Sphinx Autodoc extension (sphinx.ext.autodoc) so the generated
+# API reference shows all members (methods, etc.) rather than just some.
+autodoc_default_flags = [
+    'members',
+    'private-members',
+    'special-members',
+    'undoc-members',
+    'inherited-members',
+    'show-inheritance',
+]
+"""
+
+autodoc_default_flags = [
+    'members',
+    'private-members',
+    'special-members',
+    'undoc-members',
+    'inherited-members',
+    'show-inheritance',
+]
+
+html_theme_options = {
+    "github_url": "https://github.com/HenryAsa/email-rules",
+}
