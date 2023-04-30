@@ -1,0 +1,11 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}API Reference}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}gmail\_rules.actions.build\_xmls}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}gmail\_rules.actions.rule\_collection}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}gmail\_rules.rules.rule}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}gmail\_rules.rules.copy\_to}{6}{section.1.4}%
+\contentsline {section}{\numberline {1.5}gmail\_rules.rules.move\_to}{8}{section.1.5}%
+\contentsline {section}{\numberline {1.6}gmail\_rules.utils.helpers}{11}{section.1.6}%
+\contentsline {chapter}{\numberline {2}Indices and Tables}{13}{chapter.2}%
+\contentsline {chapter}{Python Module Index}{15}{section*.56}%
+\contentsline {chapter}{Index}{17}{section*.57}%

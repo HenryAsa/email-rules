@@ -1,0 +1,65 @@
+\indexentry{module@\spxentry{module}!gmail\_rules.actions.build\_xmls@\spxentry{gmail\_rules.actions.build\_xmls}|hyperpage}{1}
+\indexentry{gmail\_rules.actions.build\_xmls@\spxentry{gmail\_rules.actions.build\_xmls}!module@\spxentry{module}|hyperpage}{1}
+\indexentry{build\_xml\_text() (in module gmail\_rules.actions.build\_xmls)@\spxentry{build\_xml\_text()}\spxextra{in module gmail\_rules.actions.build\_xmls}|hyperpage}{1}
+\indexentry{module@\spxentry{module}!gmail\_rules.actions.rule\_collection@\spxentry{gmail\_rules.actions.rule\_collection}|hyperpage}{1}
+\indexentry{gmail\_rules.actions.rule\_collection@\spxentry{gmail\_rules.actions.rule\_collection}!module@\spxentry{module}|hyperpage}{1}
+\indexentry{Rule\_Collection (class in gmail\_rules.actions.rule\_collection)@\spxentry{Rule\_Collection}\spxextra{class in gmail\_rules.actions.rule\_collection}|hyperpage}{2}
+\indexentry{add\_rule() (Rule\_Collection method)@\spxentry{add\_rule()}\spxextra{Rule\_Collection method}|hyperpage}{2}
+\indexentry{add\_rules() (Rule\_Collection method)@\spxentry{add\_rules()}\spxextra{Rule\_Collection method}|hyperpage}{2}
+\indexentry{build\_final\_string() (Rule\_Collection method)@\spxentry{build\_final\_string()}\spxextra{Rule\_Collection method}|hyperpage}{2}
+\indexentry{final\_string (Rule\_Collection property)@\spxentry{final\_string}\spxextra{Rule\_Collection property}|hyperpage}{2}
+\indexentry{module@\spxentry{module}!gmail\_rules.rules.rule@\spxentry{gmail\_rules.rules.rule}|hyperpage}{3}
+\indexentry{gmail\_rules.rules.rule@\spxentry{gmail\_rules.rules.rule}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{Rule (class in gmail\_rules.rules.rule)@\spxentry{Rule}\spxextra{class in gmail\_rules.rules.rule}|hyperpage}{3}
+\indexentry{name (Rule attribute)@\spxentry{name}\spxextra{Rule attribute}|hyperpage}{3}
+\indexentry{final\_rule (Rule attribute)@\spxentry{final\_rule}\spxextra{Rule attribute}|hyperpage}{3}
+\indexentry{emails\_list (Rule attribute)@\spxentry{emails\_list}\spxextra{Rule attribute}|hyperpage}{3}
+\indexentry{concatenated\_emails (Rule attribute)@\spxentry{concatenated\_emails}\spxextra{Rule attribute}|hyperpage}{3}
+\indexentry{rule\_header (Rule attribute)@\spxentry{rule\_header}\spxextra{Rule attribute}|hyperpage}{3}
+\indexentry{rule\_footer (Rule attribute)@\spxentry{rule\_footer}\spxextra{Rule attribute}|hyperpage}{3}
+\indexentry{add\_attribute() (Rule method)@\spxentry{add\_attribute()}\spxextra{Rule method}|hyperpage}{4}
+\indexentry{add\_attributes() (Rule method)@\spxentry{add\_attributes()}\spxextra{Rule method}|hyperpage}{4}
+\indexentry{add\_label() (Rule method)@\spxentry{add\_label()}\spxextra{Rule method}|hyperpage}{4}
+\indexentry{add\_labels() (Rule method)@\spxentry{add\_labels()}\spxextra{Rule method}|hyperpage}{4}
+\indexentry{build\_rule() (Rule method)@\spxentry{build\_rule()}\spxextra{Rule method}|hyperpage}{4}
+\indexentry{concatenate() (Rule method)@\spxentry{concatenate()}\spxextra{Rule method}|hyperpage}{4}
+\indexentry{final\_rule\_str (Rule property)@\spxentry{final\_rule\_str}\spxextra{Rule property}|hyperpage}{5}
+\indexentry{flatten\_list() (Rule method)@\spxentry{flatten\_list()}\spxextra{Rule method}|hyperpage}{5}
+\indexentry{rule\_attributes\_xmls (Rule property)@\spxentry{rule\_attributes\_xmls}\spxextra{Rule property}|hyperpage}{5}
+\indexentry{rule\_attributes\_xmls\_str (Rule property)@\spxentry{rule\_attributes\_xmls\_str}\spxextra{Rule property}|hyperpage}{5}
+\indexentry{xml\_format\_rule\_attribute() (Rule method)@\spxentry{xml\_format\_rule\_attribute()}\spxextra{Rule method}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!gmail\_rules.rules.copy\_to@\spxentry{gmail\_rules.rules.copy\_to}|hyperpage}{6}
+\indexentry{gmail\_rules.rules.copy\_to@\spxentry{gmail\_rules.rules.copy\_to}!module@\spxentry{module}|hyperpage}{6}
+\indexentry{Copy\_To (class in gmail\_rules.rules.copy\_to)@\spxentry{Copy\_To}\spxextra{class in gmail\_rules.rules.copy\_to}|hyperpage}{6}
+\indexentry{add\_attribute() (Copy\_To method)@\spxentry{add\_attribute()}\spxextra{Copy\_To method}|hyperpage}{6}
+\indexentry{add\_attributes() (Copy\_To method)@\spxentry{add\_attributes()}\spxextra{Copy\_To method}|hyperpage}{6}
+\indexentry{add\_label() (Copy\_To method)@\spxentry{add\_label()}\spxextra{Copy\_To method}|hyperpage}{7}
+\indexentry{add\_labels() (Copy\_To method)@\spxentry{add\_labels()}\spxextra{Copy\_To method}|hyperpage}{7}
+\indexentry{build\_rule() (Copy\_To method)@\spxentry{build\_rule()}\spxextra{Copy\_To method}|hyperpage}{7}
+\indexentry{concatenate() (Copy\_To method)@\spxentry{concatenate()}\spxextra{Copy\_To method}|hyperpage}{7}
+\indexentry{final\_rule\_str (Copy\_To property)@\spxentry{final\_rule\_str}\spxextra{Copy\_To property}|hyperpage}{7}
+\indexentry{flatten\_list() (Copy\_To method)@\spxentry{flatten\_list()}\spxextra{Copy\_To method}|hyperpage}{7}
+\indexentry{rule\_attributes\_xmls (Copy\_To property)@\spxentry{rule\_attributes\_xmls}\spxextra{Copy\_To property}|hyperpage}{8}
+\indexentry{rule\_attributes\_xmls\_str (Copy\_To property)@\spxentry{rule\_attributes\_xmls\_str}\spxextra{Copy\_To property}|hyperpage}{8}
+\indexentry{xml\_format\_rule\_attribute() (Copy\_To method)@\spxentry{xml\_format\_rule\_attribute()}\spxextra{Copy\_To method}|hyperpage}{8}
+\indexentry{module@\spxentry{module}!gmail\_rules.rules.move\_to@\spxentry{gmail\_rules.rules.move\_to}|hyperpage}{8}
+\indexentry{gmail\_rules.rules.move\_to@\spxentry{gmail\_rules.rules.move\_to}!module@\spxentry{module}|hyperpage}{8}
+\indexentry{Move\_To (class in gmail\_rules.rules.move\_to)@\spxentry{Move\_To}\spxextra{class in gmail\_rules.rules.move\_to}|hyperpage}{9}
+\indexentry{add\_attribute() (Move\_To method)@\spxentry{add\_attribute()}\spxextra{Move\_To method}|hyperpage}{9}
+\indexentry{add\_attributes() (Move\_To method)@\spxentry{add\_attributes()}\spxextra{Move\_To method}|hyperpage}{9}
+\indexentry{add\_label() (Move\_To method)@\spxentry{add\_label()}\spxextra{Move\_To method}|hyperpage}{9}
+\indexentry{add\_labels() (Move\_To method)@\spxentry{add\_labels()}\spxextra{Move\_To method}|hyperpage}{9}
+\indexentry{build\_rule() (Move\_To method)@\spxentry{build\_rule()}\spxextra{Move\_To method}|hyperpage}{9}
+\indexentry{concatenate() (Move\_To method)@\spxentry{concatenate()}\spxextra{Move\_To method}|hyperpage}{10}
+\indexentry{final\_rule\_str (Move\_To property)@\spxentry{final\_rule\_str}\spxextra{Move\_To property}|hyperpage}{10}
+\indexentry{flatten\_list() (Move\_To method)@\spxentry{flatten\_list()}\spxextra{Move\_To method}|hyperpage}{10}
+\indexentry{rule\_attributes\_xmls (Move\_To property)@\spxentry{rule\_attributes\_xmls}\spxextra{Move\_To property}|hyperpage}{10}
+\indexentry{rule\_attributes\_xmls\_str (Move\_To property)@\spxentry{rule\_attributes\_xmls\_str}\spxextra{Move\_To property}|hyperpage}{10}
+\indexentry{xml\_format\_rule\_attribute() (Move\_To method)@\spxentry{xml\_format\_rule\_attribute()}\spxextra{Move\_To method}|hyperpage}{11}
+\indexentry{module@\spxentry{module}!gmail\_rules.utils.helpers@\spxentry{gmail\_rules.utils.helpers}|hyperpage}{11}
+\indexentry{gmail\_rules.utils.helpers@\spxentry{gmail\_rules.utils.helpers}!module@\spxentry{module}|hyperpage}{11}
+\indexentry{ITERABLE\_DATA\_TYPES (in module gmail\_rules.utils.helpers)@\spxentry{ITERABLE\_DATA\_TYPES}\spxextra{in module gmail\_rules.utils.helpers}|hyperpage}{11}
+\indexentry{TAB\_SPACING (in module gmail\_rules.utils.helpers)@\spxentry{TAB\_SPACING}\spxextra{in module gmail\_rules.utils.helpers}|hyperpage}{11}
+\indexentry{add\_xml\_comment() (in module gmail\_rules.utils.helpers)@\spxentry{add\_xml\_comment()}\spxextra{in module gmail\_rules.utils.helpers}|hyperpage}{11}
+\indexentry{convert\_to\_parseable\_string() (in module gmail\_rules.utils.helpers)@\spxentry{convert\_to\_parseable\_string()}\spxextra{in module gmail\_rules.utils.helpers}|hyperpage}{12}
+\indexentry{indent() (in module gmail\_rules.utils.helpers)@\spxentry{indent()}\spxextra{in module gmail\_rules.utils.helpers}|hyperpage}{12}

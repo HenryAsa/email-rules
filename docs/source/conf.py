@@ -39,7 +39,8 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.graphviz',
     'sphinx.ext.ifconfig',
-    # 'sphinx_design'
+    'sphinx.ext.inheritance_diagram',
+    'sphinx_design',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

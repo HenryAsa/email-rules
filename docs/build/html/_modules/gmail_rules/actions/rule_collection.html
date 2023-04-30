@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
@@ -38,6 +39,7 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/gmail_rules/actions/rule_collection';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -122,12 +124,6 @@
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../../api_reference.html">
-                        API Reference
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
       
@@ -217,12 +213,6 @@ document.write(`
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../../api_reference.html">
-                        API Reference
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
         
@@ -377,7 +367,7 @@ document.write(`
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_final_string</span><span class="p">()</span>
 
     <span class="c1">#### TODO: FIX THIS TO ACCOUNT FOR INDENTING ####</span>
-<div class="viewcode-block" id="Rule_Collection.add_rules"><a class="viewcode-back" href="../../../_autosummary/gmail_rules.actions.rule_collection.html#gmail_rules.actions.rule_collection.Rule_Collection.add_rules">[docs]</a>    <span class="k">def</span> <span class="nf">add_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rules_to_add</span><span class="p">:</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">set</span> <span class="o">|</span> <span class="nb">frozenset</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="Rule_Collection.add_rules"><a class="viewcode-back" href="../../../reference/api/gmail_rules.actions.rule_collection.Rule_Collection.add_rules.html#gmail_rules.actions.rule_collection.Rule_Collection.add_rules">[docs]</a>    <span class="k">def</span> <span class="nf">add_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rules_to_add</span><span class="p">:</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">set</span> <span class="o">|</span> <span class="nb">frozenset</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add :obj:`Rule` objects to a :obj:`Rule_Collection`</span>
 
 <span class="sd">        Parameters</span>
@@ -411,7 +401,7 @@ document.write(`
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rules_to_add is not of type Rule.  It is of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">rules_to_add</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Rule_Collection.add_rule"><a class="viewcode-back" href="../../../_autosummary/gmail_rules.actions.rule_collection.html#gmail_rules.actions.rule_collection.Rule_Collection.add_rule">[docs]</a>    <span class="k">def</span> <span class="nf">add_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rule_to_add</span><span class="p">:</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="Rule_Collection.add_rule"><a class="viewcode-back" href="../../../reference/api/gmail_rules.actions.rule_collection.Rule_Collection.add_rule.html#gmail_rules.actions.rule_collection.Rule_Collection.add_rule">[docs]</a>    <span class="k">def</span> <span class="nf">add_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rule_to_add</span><span class="p">:</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for :obj:`Rule_Collection.add_rules()`.  Adds :obj:`Rule` to a :obj:`Rule_Collection`</span>
 
 <span class="sd">        Parameters</span>
@@ -430,7 +420,7 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add_rules</span><span class="p">(</span><span class="n">rule_to_add</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Rule_Collection.build_final_string"><a class="viewcode-back" href="../../../_autosummary/gmail_rules.actions.rule_collection.html#gmail_rules.actions.rule_collection.Rule_Collection.build_final_string">[docs]</a>    <span class="k">def</span> <span class="nf">build_final_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">additional_comment</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Rule_Collection.build_final_string"><a class="viewcode-back" href="../../../reference/api/gmail_rules.actions.rule_collection.Rule_Collection.build_final_string.html#gmail_rules.actions.rule_collection.Rule_Collection.build_final_string">[docs]</a>    <span class="k">def</span> <span class="nf">build_final_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">additional_comment</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Builds the final properly formatted collection of rules</span>
 
 <span class="sd">        Parameters</span>

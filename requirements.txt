@@ -14,6 +14,6 @@ pytest
 
 # For building docs
 sphinx>=4.5.0
-sphinx-design
+sphinx_design
 pydata-sphinx-theme
 numpydoc>=1.4
