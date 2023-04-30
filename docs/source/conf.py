@@ -105,14 +105,18 @@ autodoc_default_flags = [
 ]
 """
 
-autodoc_default_flags = [
-    'members',
-    'private-members',
-    'special-members',
-    'undoc-members',
-    'inherited-members',
-    'show-inheritance',
-]
+autosummary_imported_members = True
+
+autodoc_inherit_docstrings = True
+
+autodoc_default_options = {
+    'inherited-members': None,
+    'members': None,
+    'undoc-members': True,
+    'show-inheritance': None,
+    ':special-members:': ['__init__', '__name__'],
+}
+
 
 html_theme_options = {
     "github_url": "https://github.com/HenryAsa/email-rules",

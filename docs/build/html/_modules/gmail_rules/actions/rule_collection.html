@@ -329,19 +329,15 @@ document.write(`
 
 <span class="nd">@set_module</span><span class="p">(</span><span class="s2">&quot;gmail_rules.actions&quot;</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">Rule_Collection</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Collection of :obj:`Rule`s that can be organized and stored together</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Collection of :obj:`Rule` that can be organized and stored together</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    name : :obj:`str`, optional</span>
 <span class="sd">        Name of this collection of rules</span>
-<span class="sd">    </span>
-<span class="sd">    Methods</span>
-<span class="sd">    -------</span>
-<span class="sd">    final_string</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Rule_Collection.__init__"><a class="viewcode-back" href="../../../_autosummary/gmail_rules.actions.rule_collection.Rule_Collection.html#gmail_rules.actions.rule_collection.Rule_Collection.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Rule Collection&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Rule Collection&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;`str` representing the name of the collection of rules&quot;&quot;&quot;</span>
 
@@ -349,10 +345,10 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;`list` of `Rule` objects that will be included in a single file&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rules_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;`dict` where keys are a rule&#39;s title (`rule_title`) and the values are that rule&quot;&quot;&quot;</span></div>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;`dict` where keys are a rule&#39;s title (`rule_title`) and the values are that rule&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Allows easy retrieval of :obj:`Rule`s stored in a `Rule_Collection`</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Allows easy retrieval of :obj:`Rule` stored in a `Rule_Collection`</span>
 
 <span class="sd">        Gets the :obj:`Rule` stored in `self.rules_dict[name]`.  Can retreive a rule</span>
 <span class="sd">        from a collection by running `Rule_Collection[rule_name]`</span>
@@ -381,13 +377,13 @@ document.write(`
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_final_string</span><span class="p">()</span>
 
     <span class="c1">#### TODO: FIX THIS TO ACCOUNT FOR INDENTING ####</span>
-    <span class="k">def</span> <span class="nf">add_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rules_to_add</span><span class="p">:</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">set</span> <span class="o">|</span> <span class="nb">frozenset</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds :obj:`Rule`s to a :obj:`Rule_Collection`</span>
+<div class="viewcode-block" id="Rule_Collection.add_rules"><a class="viewcode-back" href="../../../_autosummary/gmail_rules.actions.rule_collection.html#gmail_rules.actions.rule_collection.Rule_Collection.add_rules">[docs]</a>    <span class="k">def</span> <span class="nf">add_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rules_to_add</span><span class="p">:</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">set</span> <span class="o">|</span> <span class="nb">frozenset</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add :obj:`Rule` objects to a :obj:`Rule_Collection`</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        rules_to_add : :obj:`Rule` or list or tuple or set or frozenset or dict</span>
-<span class="sd">            The :obj:`Rule` (or :obj:`Rule`s) that should be added to the :obj:`Rule_Collection`</span>
+<span class="sd">            The :obj:`Rule` (or :obj:`Rule`) that should be added to the :obj:`Rule_Collection`</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -396,7 +392,7 @@ document.write(`
 <span class="sd">        TypeError</span>
 <span class="sd">            Raises a `TypeError` when a rule is not of type :obj:`Rule`</span>
 <span class="sd">        TypeError</span>
-<span class="sd">            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`s</span>
+<span class="sd">            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rules_to_add</span><span class="p">,</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">rules_to_add</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_dict</span><span class="p">:</span>
@@ -413,15 +409,15 @@ document.write(`
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rules_to_add needs to be an iterable, but currently is of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">rules_to_add</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rules_to_add is not of type Rule.  It is of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">rules_to_add</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rules_to_add is not of type Rule.  It is of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">rules_to_add</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">add_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rule_to_add</span><span class="p">:</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for :obj:`Rule_Collection.add_rules()`.  Adds :obj:`Rule`s to a :obj:`Rule_Collection`</span>
+<div class="viewcode-block" id="Rule_Collection.add_rule"><a class="viewcode-back" href="../../../_autosummary/gmail_rules.actions.rule_collection.html#gmail_rules.actions.rule_collection.Rule_Collection.add_rule">[docs]</a>    <span class="k">def</span> <span class="nf">add_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rule_to_add</span><span class="p">:</span> <span class="n">_R</span><span class="o">.</span><span class="n">Rule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for :obj:`Rule_Collection.add_rules()`.  Adds :obj:`Rule` to a :obj:`Rule_Collection`</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        rules_to_add : list or tuple or set or frozenset or dict</span>
-<span class="sd">            The :obj:`Rule`s that should be added to the :obj:`Rule_Collection`</span>
+<span class="sd">            The :obj:`Rule` that should be added to the :obj:`Rule_Collection`</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -430,11 +426,11 @@ document.write(`
 <span class="sd">        TypeError</span>
 <span class="sd">            Raises a `TypeError` when a rule is not of type :obj:`Rule`</span>
 <span class="sd">        TypeError</span>
-<span class="sd">            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`s</span>
+<span class="sd">            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add_rules</span><span class="p">(</span><span class="n">rule_to_add</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_rules</span><span class="p">(</span><span class="n">rule_to_add</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">build_final_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">additional_comment</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Rule_Collection.build_final_string"><a class="viewcode-back" href="../../../_autosummary/gmail_rules.actions.rule_collection.html#gmail_rules.actions.rule_collection.Rule_Collection.build_final_string">[docs]</a>    <span class="k">def</span> <span class="nf">build_final_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">additional_comment</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Builds the final properly formatted collection of rules</span>
 
 <span class="sd">        Parameters</span>
@@ -445,7 +441,7 @@ document.write(`
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        str</span>
-<span class="sd">            final string representing all of the :obj:`Rule`s in the collection</span>
+<span class="sd">            final string representing all of the :obj:`Rule` in the collection</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">final_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
@@ -455,7 +451,7 @@ document.write(`
         <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules_list</span><span class="p">):</span>      <span class="c1">## MAYBE REMOVE REVERSAL</span>
             <span class="n">final_string</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="si">{</span><span class="n">rule</span><span class="o">.</span><span class="n">build_rule</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        <span class="k">return</span> <span class="n">final_string</span>
+        <span class="k">return</span> <span class="n">final_string</span></div>
     <span class="c1">#### TODO: FIX THIS TO ACCOUNT FOR INDENTING ^^^ ####</span>
 </pre></div>
 

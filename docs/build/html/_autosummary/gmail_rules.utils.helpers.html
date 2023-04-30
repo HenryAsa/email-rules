@@ -42,7 +42,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/gmail_rules.utils.helpers';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="gmail_rules.rules.move_to.Move_To" href="gmail_rules.rules.move_to.Move_To.html" />
+    <link rel="prev" title="gmail_rules.rules.move_to" href="gmail_rules.rules.move_to.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,7 +126,7 @@
     
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../api_reference.html">
-                        API
+                        API Reference
                       </a>
                     </li>
                 
@@ -225,7 +225,7 @@ document.write(`
     
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../api_reference.html">
-                        API
+                        API Reference
                       </a>
                     </li>
                 
@@ -274,11 +274,11 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="gmail_rules.actions.build_xmls.build_xml_text.html">gmail_rules.actions.build_xmls.build_xml_text</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gmail_rules.actions.rule_collection.Rule_Collection.html">gmail_rules.actions.rule_collection.Rule_Collection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gmail_rules.rules.rule.Rule.html">gmail_rules.rules.rule.Rule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gmail_rules.rules.copy_to.Copy_To.html">gmail_rules.rules.copy_to.Copy_To</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gmail_rules.rules.move_to.Move_To.html">gmail_rules.rules.move_to.Move_To</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmail_rules.actions.build_xmls.html">gmail_rules.actions.build_xmls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmail_rules.actions.rule_collection.html">gmail_rules.actions.rule_collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmail_rules.rules.rule.html">gmail_rules.rules.rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmail_rules.rules.copy_to.html">gmail_rules.rules.copy_to</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmail_rules.rules.move_to.html">gmail_rules.rules.move_to</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">gmail_rules.utils.helpers</a></li>
 </ul>
 </div>
@@ -318,7 +318,7 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../api_reference.html" class="nav-link">API</a></li>
+    <li class="breadcrumb-item"><a href="../api_reference.html" class="nav-link">API Reference</a></li>
     
     <li class="breadcrumb-item active" aria-current="page">gmail_rules.utils.helpers</li>
   </ul>
@@ -342,10 +342,10 @@ document.write(`
 <p class="rubric">Module Attributes</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TAB_SPACING</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gmail_rules.utils.helpers.TAB_SPACING" title="gmail_rules.utils.helpers.TAB_SPACING"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TAB_SPACING</span></code></a></p></td>
 <td><p>Default amount of spaces used instead of a tab (<cite>t</cite>)</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ITERABLE_DATA_TYPES</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#gmail_rules.utils.helpers.ITERABLE_DATA_TYPES" title="gmail_rules.utils.helpers.ITERABLE_DATA_TYPES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ITERABLE_DATA_TYPES</span></code></a></p></td>
 <td><p>Iterable data types that can store multiple instances of other objects</p></td>
 </tr>
 </tbody>
@@ -353,17 +353,88 @@ document.write(`
 <p class="rubric">Functions</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_xml_comment</span></code>(comment_text)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gmail_rules.utils.helpers.add_xml_comment" title="gmail_rules.utils.helpers.add_xml_comment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_xml_comment</span></code></a>(comment_text)</p></td>
 <td><p>Add an xml comment to a string (does not include for newlines <cite>&quot;n&quot;</cite>)</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_to_parseable_string</span></code>(string_to_parse)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#gmail_rules.utils.helpers.convert_to_parseable_string" title="gmail_rules.utils.helpers.convert_to_parseable_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_to_parseable_string</span></code></a>(string_to_parse)</p></td>
 <td><p>Converts a rich-text string into a parseable string containing tabs and newlines</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">indent</span></code>(multiline_text[, amount, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gmail_rules.utils.helpers.indent" title="gmail_rules.utils.helpers.indent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indent</span></code></a>(multiline_text[, amount, ...])</p></td>
 <td><p>Indents a string with <cite>amount</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>indent_character`s</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py data">
+<dt class="sig sig-object py" id="gmail_rules.utils.helpers.ITERABLE_DATA_TYPES">
+<span class="sig-name descname"><span class="pre">ITERABLE_DATA_TYPES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><span class="pre">set</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'dict'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'set'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'frozenset'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'list'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'tuple'&gt;}</span></em><a class="headerlink" href="#gmail_rules.utils.helpers.ITERABLE_DATA_TYPES" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterable data types that can store multiple instances of other objects</p>
+<p>Contains: <cite>list</cite>, <cite>tuple</cite>, <cite>set</cite>, <cite>frozenset</cite>, <cite>dict</cite></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="gmail_rules.utils.helpers.TAB_SPACING">
+<span class="sig-name descname"><span class="pre">TAB_SPACING</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#gmail_rules.utils.helpers.TAB_SPACING" title="Permalink to this definition">#</a></dt>
+<dd><p>Default amount of spaces used instead of a tab (<cite>t</cite>)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gmail_rules.utils.helpers.add_xml_comment">
+<span class="sig-name descname"><span class="pre">add_xml_comment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comment_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/gmail_rules/utils/helpers.html#add_xml_comment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.utils.helpers.add_xml_comment" title="Permalink to this definition">#</a></dt>
+<dd><p>Add an xml comment to a string (does not include for newlines <cite>“n”</cite>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>comment_text</strong> (<cite>str</cite>) – Text that will be added as a comment</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>xml comment of <cite>comment_text</cite></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gmail_rules.utils.helpers.convert_to_parseable_string">
+<span class="sig-name descname"><span class="pre">convert_to_parseable_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string_to_parse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/gmail_rules/utils/helpers.html#convert_to_parseable_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.utils.helpers.convert_to_parseable_string" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts a rich-text string into a parseable string containing tabs and newlines</p>
+<p>This function takes a string and allows newlines/tabs to be displayed as <cite>n</cite> and <cite>t</cite>
+rather than a newline and a tab</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string_to_parse</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – String to display parsed richtext operations for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>String displaying <cite>n</cite> and <cite>t</cite> rather than newlines and tabs</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gmail_rules.utils.helpers.indent">
+<span class="sig-name descname"><span class="pre">indent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multiline_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent_character</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\t'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/gmail_rules/utils/helpers.html#indent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gmail_rules.utils.helpers.indent" title="Permalink to this definition">#</a></dt>
+<dd><p>Indents a string with <cite>amount</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>indent_character`s</p>
+<p>Prefix each newline (<cite>”n”</cite>) in multiline_text with <cite>amount * indent_character</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>multiline_text</strong> (<cite>str</cite>) – Multiline <cite>str</cite> containing <cite>“n”</cite> that should be indented</p></li>
+<li><p><strong>amount</strong> (<cite>int</cite>, optional) – The amount that <cite>multiline_text</cite> should be indented by, defaulted to 1</p></li>
+<li><p><strong>indent_character</strong> (<cite>str</cite>, optional) – The character that <cite>multiline_text</cite> should be indented with, defaulted to <cite>“t”</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The texted indented with <cite>amount</cite> instances of the <cite>indent_character</cite></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -378,12 +449,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="gmail_rules.rules.move_to.Move_To.html"
+       href="gmail_rules.rules.move_to.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">gmail_rules.rules.move_to.Move_To</p>
+        <p class="prev-next-title">gmail_rules.rules.move_to</p>
       </div>
     </a>
 </div></div>
@@ -397,6 +468,20 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.utils.helpers.ITERABLE_DATA_TYPES"><code class="docutils literal notranslate"><span class="pre">ITERABLE_DATA_TYPES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.utils.helpers.TAB_SPACING"><code class="docutils literal notranslate"><span class="pre">TAB_SPACING</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.utils.helpers.add_xml_comment"><code class="docutils literal notranslate"><span class="pre">add_xml_comment()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.utils.helpers.convert_to_parseable_string"><code class="docutils literal notranslate"><span class="pre">convert_to_parseable_string()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmail_rules.utils.helpers.indent"><code class="docutils literal notranslate"><span class="pre">indent()</span></code></a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
