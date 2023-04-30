@@ -3,6 +3,9 @@ from gmail_rules.actions import set_module
 import gmail_rules.rules as _R
 import gmail_rules.utils.helpers as _hp
 
+
+__all__ = ["Rule_Collection"]
+
 @set_module("gmail_rules.actions")
 class Rule_Collection:
     """Collection of :obj:`Rule`s that can be organized and stored together
