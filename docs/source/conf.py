@@ -72,4 +72,4 @@ intersphinx_mapping = {
 
 # html_theme = 'alabaster'
 html_theme = 'pydata_sphinx_theme'
-html_static_path = ['_static']
+# html_static_path = ['_static']
