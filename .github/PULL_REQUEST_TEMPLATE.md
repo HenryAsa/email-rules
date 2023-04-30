@@ -9,7 +9,7 @@ Please include a summary of the change and which issue is fixed. Please also inc
 Related to #(issue)
 Fixes #(issue)
 
-## Type of change
+## Type of Change
 
 Please delete options that are not relevant.
 
