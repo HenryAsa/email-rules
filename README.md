@@ -1,5 +1,11 @@
 # email-rules
-Repository to build Gmail Rules and Filters
+`email-rules` is a repository to build Email Rules and Filters to help organize your inbox.
 
+Supported Email Clients:
+------------------------
+- Gmail
 
-[![GitHub Super-Linter](https://github.com/HenryAsa/gmail-rules/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+Email Clients to be Supported in the Future:
+--------------------------------------------
+- Microsoft Outlook
+- Mac Mail
