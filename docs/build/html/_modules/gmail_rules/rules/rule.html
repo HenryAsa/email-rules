@@ -121,6 +121,19 @@
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../gmail_rules.rules.html">
+                        gmail_rules.rules package
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../gmail_rules.utils.html">
+                        gmail_rules.utils package
+                      </a>
+                    </li>
+                
   </ul>
 </nav></div>
       
@@ -194,6 +207,19 @@ document.write(`
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../gmail_rules.rules.html">
+                        gmail_rules.rules package
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../gmail_rules.utils.html">
+                        gmail_rules.utils package
+                      </a>
+                    </li>
+                
   </ul>
 </nav></div>
         
@@ -273,7 +299,7 @@ document.write(`
   <h1>Source code for gmail_rules.rules.rule</h1><div class="highlight"><pre>
 <span></span>
 <span class="kn">from</span> <span class="nn">gmail_rules.utils</span> <span class="kn">import</span> <span class="n">helpers</span> <span class="k">as</span> <span class="n">_hp</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">set_module</span>
+<span class="kn">from</span> <span class="nn">gmail_rules.rules</span> <span class="kn">import</span> <span class="n">set_module</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Rule&quot;</span><span class="p">]</span>
 
@@ -316,6 +342,9 @@ document.write(`
 <span class="sd">        rule_name : `str`, optional</span>
 <span class="sd">            name of the mail rule, by default `&quot;Mail Filter&quot;`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This is a `list` containing all of the labels that should be applied to this rule&quot;&quot;&quot;</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">rule_name</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;This `str` is the title of the rule&quot;&quot;&quot;</span>
 
@@ -343,7 +372,7 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">concatenated_emails</span><span class="p">)</span>
         <span class="c1">###### CHECK WHETHER RULE RELIES ON SPECIFIC EMAIL ADDRESSES ######</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">rule_header</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_hp</span><span class="o">.</span><span class="n">add_xml_comment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&lt;entry&gt;</span><span class="se">\n\t</span><span class="s2">&lt;category term=&#39;filter&#39;&gt;&lt;/category&gt;</span><span class="se">\n\t</span><span class="s2">&lt;title&gt;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&lt;/title&gt;</span><span class="se">\n\t</span><span class="s2">&lt;content&gt;&lt;/content&gt;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rule_header</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&lt;entry&gt;</span><span class="se">\n\t</span><span class="s2">&lt;category term=&#39;filter&#39;&gt;&lt;/category&gt;</span><span class="se">\n\t</span><span class="s2">&lt;title&gt;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&lt;/title&gt;</span><span class="se">\n\t</span><span class="s2">&lt;content&gt;&lt;/content&gt;&quot;</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;This is a `str` representing the top section of a mail rule that remains constant&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rule_footer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&lt;/entry&gt;&quot;</span>
@@ -356,6 +385,7 @@ document.write(`
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        rule_attribute_xmls : `dict`</span>
+<span class="sd">            Dictionary where keys are the attribute and values are the xml representation of the attribute</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">rule_attributes_xmls</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">attribute_name</span><span class="p">,</span> <span class="n">attribute_value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rule_attributes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -365,11 +395,12 @@ document.write(`
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">rule_attributes_xmls_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts `dict` of rule attributes into ordered `str` for use in final xml</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts :obj:`dict` of rule attributes into ordered `str` for use in final xml</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        rule_attribute_xmls_str : `str`</span>
+<span class="sd">            :obj:`str` representing this :obj:`Rule` as an xml</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">rule_attributes_xmls_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="n">current_rule_xmls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rule_attributes_xmls</span>
@@ -382,7 +413,13 @@ document.write(`
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">final_rule_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;This is the final `str` that can be copied and pasted into an xml to define the rule&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This is the final `str` that can be copied and pasted into an xml to define the rule</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            `str` representing the entire rule in xml format</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_rule</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_modify_possible_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_attribute</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -396,11 +433,22 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">_attribute_order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attribute_order</span> <span class="o">+</span> <span class="p">(</span><span class="n">new_attribute</span><span class="p">,)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_possible_attributes</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_attribute_order</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Rule.flatten_list"><a class="viewcode-back" href="../../../index.html#gmail_rules.rules.Rule.flatten_list">[docs]</a>    <span class="k">def</span> <span class="nf">flatten_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_to_flatten</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Rule.flatten_list"><a class="viewcode-back" href="../../../gmail_rules.rules.html#gmail_rules.rules.rule.Rule.flatten_list">[docs]</a>    <span class="k">def</span> <span class="nf">flatten_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_to_flatten</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts a list of lists into a single flat list</span>
+
 <span class="sd">        This function takes a `list` (of potentially nested lists) and recursively</span>
 <span class="sd">        flattens the list so that it is just a single list of elements that are not</span>
 <span class="sd">        of type `list`</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        list_to_flatten : `list`</span>
+<span class="sd">            Input `list` (or list of lists) to be flattened</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            Returns a final flat list that does not contain any nested lists</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">list_to_flatten</span> <span class="o">==</span> <span class="p">[]:</span>
             <span class="k">return</span> <span class="n">list_to_flatten</span>
@@ -410,7 +458,7 @@ document.write(`
 
         <span class="k">return</span> <span class="n">list_to_flatten</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">flatten_list</span><span class="p">(</span><span class="n">list_to_flatten</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span></div>
 
-<div class="viewcode-block" id="Rule.concatenate"><a class="viewcode-back" href="../../../index.html#gmail_rules.rules.Rule.concatenate">[docs]</a>    <span class="k">def</span> <span class="nf">concatenate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements_input</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot; OR &quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Rule.concatenate"><a class="viewcode-back" href="../../../gmail_rules.rules.html#gmail_rules.rules.rule.Rule.concatenate">[docs]</a>    <span class="k">def</span> <span class="nf">concatenate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements_input</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot; OR &quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Given a list of elements `elements`, this returns the concatenation of the elements with a</span>
 <span class="sd">        separator `separator` between them (`&quot; OR &quot;` by default)</span>
@@ -418,9 +466,9 @@ document.write(`
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        elements_input : `list`</span>
-<span class="sd">            This is a list of items that should be concatenated together.</span>
+<span class="sd">            This is a list of items that should be concatenated together</span>
 <span class="sd">        separator : `str`, default = `&quot; OR &quot;`, optional</span>
-<span class="sd">            This is the string that will be used to separate individual elements.</span>
+<span class="sd">            This is the string that will be used to separate individual elements, by default `&quot; OR &quot;`</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -443,7 +491,7 @@ document.write(`
 
             <span class="k">return</span> <span class="n">final_output</span></div>
 
-<div class="viewcode-block" id="Rule.xml_format_rule_attribute"><a class="viewcode-back" href="../../../index.html#gmail_rules.rules.Rule.xml_format_rule_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">xml_format_rule_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Rule.xml_format_rule_attribute"><a class="viewcode-back" href="../../../gmail_rules.rules.html#gmail_rules.rules.rule.Rule.xml_format_rule_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">xml_format_rule_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Given an attribute name, its value, and an optional boolean determining whether this</span>
 <span class="sd">        new attriute should be added to the list of attributes, this function properly builds</span>
@@ -465,7 +513,7 @@ document.write(`
 
         <span class="k">return</span> <span class="n">rule_line</span></div>
 
-<div class="viewcode-block" id="Rule.add_attribute"><a class="viewcode-back" href="../../../index.html#gmail_rules.rules.Rule.add_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">add_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_custom_attribute</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="Rule.add_attribute"><a class="viewcode-back" href="../../../gmail_rules.rules.html#gmail_rules.rules.rule.Rule.add_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">add_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_custom_attribute</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add an attribute to the mail rule</span>
 
 <span class="sd">        Parameters</span>
@@ -475,11 +523,20 @@ document.write(`
 <span class="sd">        value : str</span>
 <span class="sd">            Value of the attribute</span>
 <span class="sd">        is_custom_attribute : bool, optional</span>
-<span class="sd">            Defines whether the attribute being added is custom (use with caution), default = `False`</span>
+<span class="sd">            Defines whether the attribute being added is custom (use with caution), by default `False`.</span>
+<span class="sd">            Use this with caution, as the mail rule interpreter may not be able to parse a rule with</span>
+<span class="sd">            a custom attribute</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            Raises a `KeyError` when an attribute has already been defined for this rule</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            Raises a `KeyError` if an attribute is not valid</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rule_attributes</span><span class="p">:</span>
             <span class="c1">## Raise Error when rule already contains a value for this attribute</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is already an attribute of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.  Consider calling self.update_attribute() to update the value of this attribute&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is already an attribute of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.  Consider calling </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.update_attribute() to update the value of this attribute&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">is_custom_attribute</span><span class="p">:</span>
             <span class="c1">## Check whether we are using a custom attribute</span>
@@ -491,16 +548,97 @@ document.write(`
             <span class="c1">## Raise Error if this attribute name is unallowed</span>
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not a valid filter attribute.  Check for typos&quot;</span><span class="p">)</span>
 
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span>
+            <span class="c1">## Labels are stored in self.labels, not in self.rule_attributes</span>
+            <span class="c1"># raise KeyError(f&quot;Use {self.__class__.__name__}.add_label() or {self.__class__.__name__}.add_labels() to add a label to the rule&quot;)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_labels</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">rule_attributes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
 
-<div class="viewcode-block" id="Rule.build_rule"><a class="viewcode-back" href="../../../index.html#gmail_rules.rules.Rule.build_rule">[docs]</a>    <span class="k">def</span> <span class="nf">build_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Rule.add_attributes"><a class="viewcode-back" href="../../../gmail_rules.rules.html#gmail_rules.rules.rule.Rule.add_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">add_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes_to_add</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add multiple attributes to a `Rule`</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        attributes_to_add : dict</span>
+<span class="sd">            Dictionary where key is the name of the attribute to add (`str`)</span>
+<span class="sd">            and its value (`str`) is the value of the attribute to add corresponding</span>
+<span class="sd">            to that key</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            Raises a `TypeError` if `attributes_to_add` is not a dictionary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attributes_to_add</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;attributes_to_add needs to be a dictionary, but currently it is of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">attributes_to_add</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">attribute_name</span><span class="p">,</span> <span class="n">attribute_value</span> <span class="ow">in</span> <span class="n">attributes_to_add</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="n">attribute_name</span><span class="p">,</span> <span class="n">attribute_value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rule.add_labels"><a class="viewcode-back" href="../../../gmail_rules.rules.html#gmail_rules.rules.rule.Rule.add_labels">[docs]</a>    <span class="k">def</span> <span class="nf">add_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">set</span> <span class="o">|</span> <span class="nb">frozenset</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds labels to the mail rule</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        labels : list | tuple | set | frozenset | dict</span>
+<span class="sd">            The label (or labels) to be added to the rule</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            Raises a `TypeError` if the label is not a valid type</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="ow">in</span> <span class="n">_hp</span><span class="o">.</span><span class="n">ITERABLE_DATA_TYPES</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_labels</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The label being added is not a string.  It is of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rule.add_label"><a class="viewcode-back" href="../../../gmail_rules.rules.html#gmail_rules.rules.rule.Rule.add_label">[docs]</a>    <span class="k">def</span> <span class="nf">add_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for :obj:`Rule.add_label()`.  Adds labels to the mail rule</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        labels : list | tuple | set | frozenset | dict</span>
+<span class="sd">            The label (or labels) to be added to the rule</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            Raises a `TypeError` if the label is not a valid type</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_labels</span><span class="p">(</span><span class="n">label</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rule.build_rule"><a class="viewcode-back" href="../../../gmail_rules.rules.html#gmail_rules.rules.rule.Rule.build_rule">[docs]</a>    <span class="k">def</span> <span class="nf">build_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        After all of the details of a rule are defined, this function is run</span>
 <span class="sd">        to actually build the desired mail rule.  It takes an optional argument</span>
 <span class="sd">        `rule_name` which is a `str` representing the name of the mail rule,</span>
 <span class="sd">        but when the rule is parsed into Gmail, this gets ignored.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">final_rule</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rule_header</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">rule_attributes_xmls_str</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">rule_footer</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">final_rule</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">:</span>
+            <span class="n">final_rule</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_hp</span><span class="o">.</span><span class="n">add_xml_comment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rule_header</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">rule_attributes_xmls_str</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">rule_footer</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">:</span>
+                <span class="n">rule_comment</span> <span class="o">=</span> <span class="n">_hp</span><span class="o">.</span><span class="n">add_xml_comment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+                <span class="n">final_rule</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rule_comment</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rule_header</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">xml_format_rule_attribute</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">)</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">rule_attributes_xmls_str</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">rule_footer</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+            <span class="n">final_rule</span> <span class="o">=</span> <span class="n">final_rule</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">starting_comment</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_hp</span><span class="o">.</span><span class="n">add_xml_comment</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;START --- </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> --- START&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="n">ending_comment</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">_hp</span><span class="o">.</span><span class="n">add_xml_comment</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;END --- </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> --- END&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">final_rule</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">starting_comment</span><span class="si">}{</span><span class="n">final_rule</span><span class="si">}{</span><span class="n">ending_comment</span><span class="si">}</span><span class="s2">&quot;</span>
+
         <span class="n">final_rule</span> <span class="o">=</span> <span class="n">final_rule</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">(</span><span class="n">_hp</span><span class="o">.</span><span class="n">TAB_SPACING</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">final_rule</span></div>

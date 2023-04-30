@@ -1,11 +1,11 @@
 gmail\_rules.rules package
-=========================
+==========================
 
 Submodules
 ----------
 
 gmail\_rules.rules.rule module
------------------------------
+------------------------------
 
 .. automodule:: gmail_rules.rules.rule
    :members:
@@ -14,7 +14,7 @@ gmail\_rules.rules.rule module
 
 
 gmail\_rules.rules.copy_to module
------------------------------
+---------------------------------
 
 .. automodule:: gmail_rules.rules.copy_to
    :members:
@@ -23,7 +23,7 @@ gmail\_rules.rules.copy_to module
 
 
 gmail\_rules.rules.move\_to module
----------------------------------
+----------------------------------
 
 .. automodule:: gmail_rules.rules.move_to
    :members:
