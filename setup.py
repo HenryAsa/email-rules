@@ -19,17 +19,17 @@ def setup_package():
     print(find_packages())
 
     metadata = dict(
-        name="gmail_rules",
+        name="email_rules",
         author="Henry Asa",
         author_email="henryasa@mit.edu",
-        description="Package to build Gmail Rules and Filters using Python",
+        description="Package to build Email Rules and Filters using Python",
         long_description=Path("README.md").read_text(encoding="utf-8"),
         long_description_content_type="text/markdown",
         url="https://www.henryasa.com",
         project_urls={
-            "Bug Tracker": "https://github.com/HenryAsa/gmail-rules/issues",
+            "Bug Tracker": "https://github.com/HenryAsa/email-rules/issues",
         #     "Documentation": ,
-            "Source Code": "https://github.com/HenryAsa/gmail-rules",
+            "Source Code": "https://github.com/HenryAsa/email-rules",
         },
         platforms=["Windows", "Linux", "Solaris", "Mac OS-X", "Unix"],
         test_suite='pytest',

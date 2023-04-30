@@ -1,4 +1,7 @@
+from distutils.command import build
 import gmail_rules.utils.helpers as _hp
+
+__all__ = ["build_xml_text"]
 
 def build_xml_text(text: str) -> str:
     """

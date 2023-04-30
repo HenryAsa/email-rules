@@ -8,7 +8,7 @@ __all__ = ["Rule_Collection"]
 
 @set_module("gmail_rules.actions")
 class Rule_Collection:
-    """Collection of :obj:`Rule`s that can be organized and stored together
+    """Collection of :obj:`Rule` that can be organized and stored together
 
     Parameters
     ----------
@@ -27,7 +27,7 @@ class Rule_Collection:
         """`dict` where keys are a rule's title (`rule_title`) and the values are that rule"""
 
     def __getitem__(self, name: str) -> _R.Rule:
-        """Allows easy retrieval of :obj:`Rule`s stored in a `Rule_Collection`
+        """Allows easy retrieval of :obj:`Rule` stored in a `Rule_Collection`
 
         Gets the :obj:`Rule` stored in `self.rules_dict[name]`.  Can retreive a rule
         from a collection by running `Rule_Collection[rule_name]`
@@ -57,12 +57,12 @@ class Rule_Collection:
 
     #### TODO: FIX THIS TO ACCOUNT FOR INDENTING ####
     def add_rules(self, rules_to_add: _R.Rule | list | tuple | set | frozenset | dict) -> None:
-        """Adds :obj:`Rule`s to a :obj:`Rule_Collection`
+        """Add :obj:`Rule` objects to a :obj:`Rule_Collection`
 
         Parameters
         ----------
         rules_to_add : :obj:`Rule` or list or tuple or set or frozenset or dict
-            The :obj:`Rule` (or :obj:`Rule`s) that should be added to the :obj:`Rule_Collection`
+            The :obj:`Rule` (or :obj:`Rule`) that should be added to the :obj:`Rule_Collection`
 
         Raises
         ------
@@ -71,7 +71,7 @@ class Rule_Collection:
         TypeError
             Raises a `TypeError` when a rule is not of type :obj:`Rule`
         TypeError
-            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`s
+            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`
         """
         if isinstance(rules_to_add, _R.Rule):
             if rules_to_add.name in self.rules_dict:
@@ -91,12 +91,12 @@ class Rule_Collection:
             raise TypeError(f"rules_to_add is not of type Rule.  It is of type {type(rules_to_add)}")
 
     def add_rule(self, rule_to_add: _R.Rule) -> None:
-        """Alias for :obj:`Rule_Collection.add_rules()`.  Adds :obj:`Rule`s to a :obj:`Rule_Collection`
+        """Alias for :obj:`Rule_Collection.add_rules()`.  Adds :obj:`Rule` to a :obj:`Rule_Collection`
 
         Parameters
         ----------
         rules_to_add : list or tuple or set or frozenset or dict
-            The :obj:`Rule`s that should be added to the :obj:`Rule_Collection`
+            The :obj:`Rule` that should be added to the :obj:`Rule_Collection`
 
         Raises
         ------
@@ -105,7 +105,7 @@ class Rule_Collection:
         TypeError
             Raises a `TypeError` when a rule is not of type :obj:`Rule`
         TypeError
-            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`s
+            Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`
         """
         self.add_rules(rule_to_add)
 
@@ -120,7 +120,7 @@ class Rule_Collection:
         Returns
         -------
         str
-            final string representing all of the :obj:`Rule`s in the collection
+            final string representing all of the :obj:`Rule` in the collection
         """
         final_string = ""
 
