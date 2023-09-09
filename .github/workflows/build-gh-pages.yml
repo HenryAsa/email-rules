@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy Documentation Using GitHub
+name: Deploy Documentation To GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -57,6 +57,9 @@ jobs:
           name: package_docs
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - name: Testing
+        run: |
+          ls
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
