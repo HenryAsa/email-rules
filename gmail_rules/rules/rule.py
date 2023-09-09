@@ -1,10 +1,9 @@
 
 from ..utils import helpers as _hp
-from ..rules import set_module
 
 __all__ = ["Rule"]
 
-@set_module('gmail_rules.rules')
+
 class Rule:
     """Defines an individual mail rule and its necessary attributes
 
@@ -27,9 +26,8 @@ class Rule:
         Generic string that precedes the unique section of mail rules
     rule_footer : `str`
         Generic string that appends the unique section of mail rules
-
-
     """
+
 
     def __init__(self, list_of_emails: list = [], rule_defaults: dict = {}, rule_name: str = "Mail Filter") -> None:
         """Initialize a new Rule object
@@ -79,6 +77,7 @@ class Rule:
         self.rule_footer: str = "\n</entry>"
         """This is a `str` representing how each mail rule will end"""
 
+
     @property
     def rule_attributes_xmls(self) -> dict:
         """Converts `dict` of rule attributes into `dict` of attributes where keys are in xml format
@@ -93,6 +92,7 @@ class Rule:
             rule_attributes_xmls[attribute_name] = f"{self.xml_format_rule_attribute(attribute_name, attribute_value)}"
 
         return rule_attributes_xmls
+
 
     @property
     def rule_attributes_xmls_str(self) -> str:
@@ -112,6 +112,7 @@ class Rule:
 
         return rule_attributes_xmls_str
 
+
     @property
     def final_rule_str(self) -> str:
         """This is the final `str` that can be copied and pasted into an xml to define the rule
@@ -123,6 +124,7 @@ class Rule:
         """
         return self.build_rule()
 
+
     def _modify_possible_attributes(self, new_attribute: str) -> None:
         """Modify the order of the hard-coded attributes arrays
 
@@ -133,6 +135,7 @@ class Rule:
         """
         self._attribute_order = self._attribute_order + (new_attribute,)
         self._possible_attributes = frozenset(self._attribute_order)
+
 
     def flatten_list(self, list_to_flatten: list) -> list:
         """Converts a list of lists into a single flat list
@@ -158,6 +161,7 @@ class Rule:
             return self.flatten_list(list_to_flatten[0]) + self.flatten_list(list_to_flatten[1:])
 
         return list_to_flatten[:1] + self.flatten_list(list_to_flatten[1:])
+
 
     def concatenate(self, elements_input: list, separator: str = " OR ") -> str:
         """
@@ -192,6 +196,7 @@ class Rule:
 
             return final_output
 
+
     def xml_format_rule_attribute(self, name: str, value: str) -> str:
         """
         Given an attribute name, its value, and an optional boolean determining whether this
@@ -213,6 +218,7 @@ class Rule:
         rule_line = f"\n\t<apps:property name='{name}' value='{value}'/>"
 
         return rule_line
+
 
     def add_attribute(self, name: str, value: str, is_custom_attribute: bool = False) -> None:
         """Add an attribute to the mail rule
@@ -278,6 +284,7 @@ class Rule:
         for attribute_name, attribute_value in attributes_to_add.items():
             self.add_attribute(attribute_name, attribute_value)
 
+
     def add_labels(self, labels: str | list | tuple | set | frozenset | dict) -> None:
         """Adds labels to the mail rule
 
@@ -301,6 +308,7 @@ class Rule:
         else:
             raise TypeError(f"The label being added is not a string.  It is of type {type(label)}")
 
+
     def add_label(self, label: str) -> None:
         """Alias for :obj:`Rule.add_label()`.  Adds labels to the mail rule
 
@@ -315,6 +323,7 @@ class Rule:
             Raises a `TypeError` if the label is not a valid type
         """
         self.add_labels(label)
+
 
     def build_rule(self) -> str:
         """

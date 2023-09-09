@@ -7,8 +7,7 @@ Documentation for Email-Rules
 =============================
 
 .. toctree::
-   :maxdepth: 5
-   :caption: Contents:
+   :hidden:
 
    Home Page <self>
    API Reference <_autosummary/gmail_rules>

@@ -22,6 +22,7 @@ def add_xml_comment(comment_text: str) -> str:
     """
     return f'<!-- {comment_text} -->'
 
+
 def indent(multiline_text: str, amount: int = 1, indent_character: str = "\t") -> str:
     """Indents a string with `amount` `indent_character`
 
@@ -42,6 +43,7 @@ def indent(multiline_text: str, amount: int = 1, indent_character: str = "\t") -
         The texted indented with `amount` instances of the `indent_character`
     """
     return textwrap.indent(multiline_text, amount * indent_character)
+
 
 def convert_to_parseable_string(string_to_parse: str) -> str:
     """Converts a rich-text string into a parseable string containing tabs and newlines
