@@ -1,7 +1,7 @@
 
-from gmail_rules.utils import helpers as _hp
-from gmail_rules.rules.rule import Rule as _Rule
-from gmail_rules.rules import set_module
+from ..utils import helpers as _hp
+from ..rules.rule import Rule as _Rule
+from ..rules import set_module
 
 __all__ = ["Move_To"]
 

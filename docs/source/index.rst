@@ -7,10 +7,11 @@ Documentation for Email-Rules
 =============================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
    :caption: Contents:
 
-   api_reference
+   Home Page <self>
+   API Reference <_autosummary/gmail_rules>
 
 
 Indices and Tables

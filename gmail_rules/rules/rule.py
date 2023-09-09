@@ -1,6 +1,6 @@
 
-from gmail_rules.utils import helpers as _hp
-from gmail_rules.rules import set_module
+from ..utils import helpers as _hp
+from ..rules import set_module
 
 __all__ = ["Rule"]
 
@@ -206,7 +206,7 @@ class Rule:
             This is the value of the desired attribute
 
         Returns
-        ----------
+        -------
         rule_line : `str`
             Returns the properly formatted attribute
         """

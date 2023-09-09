@@ -1,7 +1,7 @@
 
-from gmail_rules.actions import set_module
-import gmail_rules.rules as _R
-import gmail_rules.utils.helpers as _hp
+from ..actions import set_module
+from ..rules import rule as _R
+from ..utils import helpers as _hp
 
 
 __all__ = ["Rule_Collection"]

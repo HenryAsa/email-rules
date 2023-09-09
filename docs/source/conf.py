@@ -29,7 +29,6 @@ source_suffix = '.rst'
 
 extensions = [
     'sphinx.ext.autodoc',
-    # 'numpydoc',
     'sphinx.ext.intersphinx',
     'sphinx.ext.coverage',
     'sphinx.ext.doctest',
@@ -39,6 +38,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.graphviz',
     'sphinx.ext.ifconfig',
+    'numpydoc',
     # 'sphinx_design'
 ]
 
@@ -106,6 +106,7 @@ autodoc_default_flags = [
 """
 
 autosummary_imported_members = True
+autosummary_generate = True
 
 autodoc_inherit_docstrings = True
 
