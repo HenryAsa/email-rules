@@ -1,12 +1,11 @@
 
-from gmail_rules.actions import set_module
-import gmail_rules.rules as _R
-import gmail_rules.utils.helpers as _hp
+from ..rules import rule as _R
+from ..utils import helpers as _hp
 
 
 __all__ = ["Rule_Collection"]
 
-@set_module("gmail_rules.actions")
+
 class Rule_Collection:
     """Collection of :obj:`Rule` that can be organized and stored together
 
@@ -26,6 +25,7 @@ class Rule_Collection:
         self.rules_dict: dict[str, _R.Rule] = {}
         """`dict` where keys are a rule's title (`rule_title`) and the values are that rule"""
 
+
     def __getitem__(self, name: str) -> _R.Rule:
         """Allows easy retrieval of :obj:`Rule` stored in a `Rule_Collection`
 
@@ -44,6 +44,7 @@ class Rule_Collection:
         """
         return self.rules_dict[name]
 
+
     @property
     def final_string(self) -> str:
         """Generates the final string representation of a collection of rules
@@ -54,6 +55,7 @@ class Rule_Collection:
             `str` representing the xmls of all the rules in this collection
         """
         return self.build_final_string()
+
 
     #### TODO: FIX THIS TO ACCOUNT FOR INDENTING ####
     def add_rules(self, rules_to_add: _R.Rule | list | tuple | set | frozenset | dict) -> None:
@@ -90,6 +92,7 @@ class Rule_Collection:
         else:
             raise TypeError(f"rules_to_add is not of type Rule.  It is of type {type(rules_to_add)}")
 
+
     def add_rule(self, rule_to_add: _R.Rule) -> None:
         """Alias for :obj:`Rule_Collection.add_rules()`.  Adds :obj:`Rule` to a :obj:`Rule_Collection`
 
@@ -108,6 +111,7 @@ class Rule_Collection:
             Raises a `TypeError` if a rule is not an iterable of :obj:`Rule`
         """
         self.add_rules(rule_to_add)
+
 
     def build_final_string(self, additional_comment: str = None) -> str:
         """Builds the final properly formatted collection of rules

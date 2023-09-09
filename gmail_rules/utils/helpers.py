@@ -2,8 +2,10 @@ import textwrap
 
 TAB_SPACING : int = 4
 """Default amount of spaces used instead of a tab (`"\\t"`)"""
+
 ITERABLE_DATA_TYPES : set = {list, tuple, set, frozenset, dict}
 """Iterable data types that can store multiple instances of other objects\n\nContains: `list`, `tuple`, `set`, `frozenset`, `dict`"""
+
 
 def add_xml_comment(comment_text: str) -> str:
     """Add an xml comment to a string (does not include for newlines `"\\n"`)
@@ -19,6 +21,7 @@ def add_xml_comment(comment_text: str) -> str:
         xml comment of `comment_text`
     """
     return f'<!-- {comment_text} -->'
+
 
 def indent(multiline_text: str, amount: int = 1, indent_character: str = "\t") -> str:
     """Indents a string with `amount` `indent_character`
@@ -40,6 +43,7 @@ def indent(multiline_text: str, amount: int = 1, indent_character: str = "\t") -
         The texted indented with `amount` instances of the `indent_character`
     """
     return textwrap.indent(multiline_text, amount * indent_character)
+
 
 def convert_to_parseable_string(string_to_parse: str) -> str:
     """Converts a rich-text string into a parseable string containing tabs and newlines

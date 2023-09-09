@@ -29,7 +29,6 @@ source_suffix = '.rst'
 
 extensions = [
     'sphinx.ext.autodoc',
-    # 'numpydoc',
     'sphinx.ext.intersphinx',
     'sphinx.ext.coverage',
     'sphinx.ext.doctest',
@@ -39,6 +38,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.graphviz',
     'sphinx.ext.ifconfig',
+    'numpydoc',
     # 'sphinx_design'
 ]
 
@@ -82,7 +82,15 @@ intersphinx_mapping = {
 # -----------------------------------------------------------------------------
 # Autosummary
 # -----------------------------------------------------------------------------
-autosummary_generate = True
+autosummary_generate = True             # Turn on sphinx.ext.autosummary
+autoclass_content = "both"              # Add __init__ doc (ie. params) to class summaries
+html_show_sourcelink = False            # Remove 'view source code' from top of page (for html, not python)
+autodoc_inherit_docstrings = True       # If no docstring, inherit from base class
+set_type_checking_flag = True           # Enable 'expensive' imports for sphinx_autodoc_typehints
+nbsphinx_allow_errors = True            # Continue through Jupyter errors
+# autodoc_typehints = "description"       # Sphinx-native method. Not as good as sphinx_autodoc_typehints
+add_module_names = False                # Remove namespaces from class/method signatures
+
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -92,30 +100,8 @@ autosummary_generate = True
 html_theme = 'pydata_sphinx_theme'
 # html_static_path = ['_static']
 
-"""
-# Configure the Sphinx Autodoc extension (sphinx.ext.autodoc) so the generated
-# API reference shows all members (methods, etc.) rather than just some.
-autodoc_default_flags = [
-    'members',
-    'private-members',
-    'special-members',
-    'undoc-members',
-    'inherited-members',
-    'show-inheritance',
-]
-"""
 
 autosummary_imported_members = True
-
-autodoc_inherit_docstrings = True
-
-autodoc_default_options = {
-    'inherited-members': None,
-    'members': None,
-    'undoc-members': True,
-    'show-inheritance': None,
-    ':special-members:': ['__init__', '__name__'],
-}
 
 
 html_theme_options = {

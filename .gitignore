@@ -2,17 +2,19 @@
 # Byte-compiled / optimized / DLL files #
 #########################################
 **/__pycache__
+**/.vscode
 
 
 ################
 # Python Files #
 ################
-/build/
+docs/build/
+docs/source/_autosummary
 # setup.py dist directory
 dist/
-doc/build
-doc/docenv
-doc/cdoc/build
+docs/build
+docs/docenv
+docs/cdoc/build
 # Egg metadata
 *.egg-info
 

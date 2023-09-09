@@ -1,5 +1,5 @@
 from distutils.command import build
-import gmail_rules.utils.helpers as _hp
+from ..utils import helpers as _hp
 
 __all__ = ["build_xml_text"]
 
