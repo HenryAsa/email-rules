@@ -28,13 +28,13 @@
         - [`PyTest Documentation`](https://docs.pytest.org/en/7.3.x/)
     validations:
       required: false
-  
+
   - type: textarea
     attributes:
       label: "Example Python Code of Intended Implementation and Feature:"
       description: >
         This code does not actually have to run, but should demonstrate how the new
         feature is intended to work.
-      render: python
+      render: Python
     validations:
       required: false

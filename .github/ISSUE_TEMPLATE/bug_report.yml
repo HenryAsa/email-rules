@@ -20,10 +20,10 @@
         interpreter or run as-is via `python myproblem.py`.
       placeholder: |
         << your code here >>
-      render: python
+      render: Python
     validations:
       required: false
-    
+
   - type: textarea
     attributes:
       label: "Error message:"
@@ -31,7 +31,7 @@
         Please include full error message, if any.
       placeholder: |
         << Full traceback starting from `Traceback: ...` >>
-      render: shell
+      render: Shell
     validations:
       required: false
 
